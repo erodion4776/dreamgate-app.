@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Policy - DreamGate</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-light: #a78bfa; --bg-dark: #0c0a1f; --bg-card: rgba(30, 27, 58, 0.8);
+            --text-white: #ffffff; --text-light: #e0e0e0; --text-gray: #c7c7c7; 
+            --border-color: #3a3a5a; --z-fixed: 100;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: var(--bg-dark); color: var(--text-light); line-height: 1.8; }
+        .container { width: 100%; max-width: 800px; margin: 0 auto; padding: 0 1rem; }
+        a { text-decoration: none; color: var(--primary-light); }
+        .header { position: sticky; top: 0; width: 100%; background: var(--bg-dark); z-index: var(--z-fixed); border-bottom: 1px solid var(--border-color); }
+        .nav { height: 4.5rem; display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 1rem;}
+        .nav__logo { display: flex; align-items: center; gap: 0.5rem; font-size: 1.25rem; font-weight: 700; color: var(--text-white); }
+        .nav__logo i { color: var(--primary-light); }
+        .nav__toggle { font-size: 1.5rem; cursor: pointer; color: var(--text-light); }
+        .nav__menu { position: fixed; top: 0; right: -100%; width: 70%; height: 100%; background: #120f2b; padding: 6rem 2rem 2rem; transition: right 0.4s ease-in-out; z-index: var(--z-fixed); }
+        .nav__menu.show-menu { right: 0; }
+        .nav__list { list-style: none; display: flex; flex-direction: column; align-items: center; gap: 2.5rem; }
+        .nav__link { color: var(--text-light); font-weight: 500; font-size: 1.2rem; }
+        .nav__close { position: absolute; top: 1.2rem; right: 1.5rem; font-size: 1.5rem; cursor: pointer; }
+        @media screen and (min-width: 768px) { .nav__toggle, .nav__close { display: none; } .nav__menu { position: static; width: auto; height: auto; background: none; padding: 0; } .nav__list { flex-direction: row; gap: 2rem; } .nav__link { font-size: 1rem; } }
+        .main { padding-top: 4rem; padding-bottom: 4rem; }
+        .page-header { text-align: center; margin-bottom: 3rem; }
+        .page-title { font-size: 2.8rem; color: var(--text-white); }
+        .page-content h2 { font-size: 1.8rem; color: var(--primary-light); margin-top: 2.5rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;}
+        .page-content h3 { font-size: 1.4rem; color: var(--text-white); margin-top: 2rem; margin-bottom: 0.5rem; }
+        .page-content p, .page-content ul { color: var(--text-gray); margin-bottom: 1rem; }
+        .page-content ul { list-style-position: inside; padding-left: 0.5rem; }
+        .footer { text-align: center; padding: 2rem 0; margin-top: 2rem; border-top: 1px solid var(--border-color); font-size: 0.9rem; color: var(--text-gray); }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <nav class="nav">
+            <a href="index.html" class="nav__logo"><i class="fas fa-moon"></i><span>DreamGate</span></a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="interpreter.html" class="nav__link">Interpreter</a></li>
+                    <li class="nav__item"><a href="dictionary.html" class="nav__link">Dictionary</a></li>
+                    <li class="nav__item"><a href="journal.html" class="nav__link">Journal</a></li>
+                </ul>
+                <div class="nav__close" id="nav-close"><i class="fas fa-times"></i></div>
+            </div>
+            <div class="nav__toggle" id="nav-toggle"><i class="fas fa-bars"></i></div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Cookie Policy</h1>
+            </div>
+            <div class="page-content">
+                <p><strong>Last Updated: October 1, 2025</strong></p>
+                <p>This Cookie Policy explains how DreamGate ("we", "us", and "our") uses cookies and similar technologies to recognize you when you visit our website. It explains what these technologies are and why we use them, as well as your rights to control our use of them.</p>
+
+                <h2>What Are Cookies?</h2>
+                <p>Cookies are small data files that are placed on your computer or mobile device when you visit a website. Cookies are widely used by website owners in order to make their websites work, or to work more efficiently, as well as to provide reporting information.</p>
+                <p>Our site does not use traditional tracking cookies. We use your browser's `localStorage` for essential functionality, which is a similar but more modern technology that is not sent to our server with every request.</p>
+                
+                <h2>How We Use These Technologies</h2>
+                <p>We use browser storage for a few key reasons:</p>
+                <ul>
+                    <li><strong>Strictly Necessary Functionality:</strong> These are required for the operation of our Service. For example, when you type a dream on the homepage and click "Interpret," we use `localStorage` to carry that text over to the interpreter page for a seamless experience.</li>
+                    <li><strong>Future Authentication:</strong> When user accounts are implemented, we will use storage to keep you logged in securely during your session.</li>
+                </ul>
+                
+                <h2>Your Choices Regarding Cookies</h2>
+                <p>Most web browsers allow you to control cookies through their settings preferences. You can set your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, some features of our Service may not function properly.</p>
+                <p>To learn more about how to manage cookies on popular browsers, please see the links below:</p>
+                <ul>
+                    <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Google Chrome</a></li>
+                    <li><a href="https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences" target="_blank" rel="noopener">Mozilla Firefox</a></li>
+                    <li><a href="https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac" target="_blank" rel="noopener">Apple Safari</a></li>
+                </ul>
+
+                <h2>Changes to This Cookie Policy</h2>
+                <p>We may update this Cookie Policy from time to time. We will notify you of any changes by posting the new Cookie Policy on this page. You are advised to review this Cookie Policy periodically for any changes.</p>
+
+                <h2>Contact Us</h2>
+                <p>If you have any questions about our use of cookies or other technologies, please email us at <a href="mailto:privacy@dreamgate.com">privacy@dreamgate.com</a>.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 DreamGate. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const navMenu = document.getElementById('nav-menu'), navToggle = document.getElementById('nav-toggle'), navClose = document.getElementById('nav-close');
+        if(navToggle) { navToggle.addEventListener('click', () => { navMenu.classList.add('show-menu') }) }
+        if(navClose) { navClose.addEventListener('click', () => { navMenu.classList.remove('show-menu') }) }
+    </script>
+</body>
+</html>
