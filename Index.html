@@ -1,0 +1,432 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DreamGate - Unlock the meaning of your dreams with AI-powered interpretation">
+    <meta name="keywords" content="dream interpretation, dream meaning, dream journal, dream analysis">
+    <meta name="author" content="DreamGate">
+    
+    <title>DreamGate - Unlock the Meaning of Your Dreams</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Embedded CSS (keeping your existing styles) -->
+    <style>
+        /* Your existing CSS remains the same */
+        /* ... (all your CSS code stays unchanged) ... */
+    </style>
+</head>
+<body>
+    
+    <!-- Header Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <!-- Logo -->
+            <a href="index.html" class="nav__logo">
+                <i class="fas fa-moon"></i>
+                <span>DreamGate</span>
+            </a>
+            
+            <!-- Navigation Menu -->
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link active">
+                            <i class="fas fa-home nav__icon"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="interpreter.html" class="nav__link">
+                            <i class="fas fa-brain nav__icon"></i>
+                            <span>Interpreter</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="dictionary.html" class="nav__link">
+                            <i class="fas fa-book nav__icon"></i>
+                            <span>Dictionary</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="journal.html" class="nav__link">
+                            <i class="fas fa-journal-whills nav__icon"></i>
+                            <span>Journal</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="community.html" class="nav__link">
+                            <i class="fas fa-users nav__icon"></i>
+                            <span>Community</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="contact.html" class="nav__link">
+                            <i class="fas fa-envelope nav__icon"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <!-- Close button for mobile -->
+                <div class="nav__close" id="nav-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            
+            <!-- Nav buttons -->
+            <div class="nav__buttons">
+                <button class="nav__login-btn" id="login-btn">Login</button>
+                <button class="nav__signup-btn" id="signup-btn">Sign Up</button>
+                
+                <!-- Mobile menu toggle -->
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="main">
+        
+        <!-- Hero Section (keeping your existing content) -->
+        <section class="hero section" id="hero">
+            <!-- Your existing hero content -->
+        </section>
+        
+        <!-- Featured Dream Meanings -->
+        <section class="featured section" id="featured">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Common Dream Themes</h2>
+                    <p class="section__subtitle">
+                        Click on any card to explore detailed interpretations
+                    </p>
+                </div>
+                
+                <div class="featured__grid">
+                    <!-- Updated dream cards with proper dictionary links -->
+                    <article class="dream-card">
+                        <div class="dream-card__icon">
+                            <i class="fas fa-dove"></i>
+                        </div>
+                        <h3 class="dream-card__title">Flying Dreams</h3>
+                        <p class="dream-card__description">
+                            Freedom, ambition, and desire to escape limitations
+                        </p>
+                        <div class="dream-card__tags">
+                            <span class="tag">Freedom</span>
+                            <span class="tag">Control</span>
+                            <span class="tag">Ambition</span>
+                        </div>
+                        <a href="dictionary.html" class="dream-card__link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </article>
+                    
+                    <article class="dream-card">
+                        <div class="dream-card__icon">
+                            <i class="fas fa-tooth"></i>
+                        </div>
+                        <h3 class="dream-card__title">Teeth Falling Out</h3>
+                        <p class="dream-card__description">
+                            Anxiety about appearance or feelings of powerlessness
+                        </p>
+                        <div class="dream-card__tags">
+                            <span class="tag">Anxiety</span>
+                            <span class="tag">Change</span>
+                            <span class="tag">Loss</span>
+                        </div>
+                        <a href="dictionary.html" class="dream-card__link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </article>
+                    
+                    <article class="dream-card">
+                        <div class="dream-card__icon">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <h3 class="dream-card__title">Being Chased</h3>
+                        <p class="dream-card__description">
+                            Avoiding something in real life or running from fears
+                        </p>
+                        <div class="dream-card__tags">
+                            <span class="tag">Fear</span>
+                            <span class="tag">Avoidance</span>
+                            <span class="tag">Stress</span>
+                        </div>
+                        <a href="dictionary.html" class="dream-card__link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </article>
+                    
+                    <article class="dream-card">
+                        <div class="dream-card__icon">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <h3 class="dream-card__title">Water Dreams</h3>
+                        <p class="dream-card__description">
+                            Emotions, spiritual cleansing, and subconscious thoughts
+                        </p>
+                        <div class="dream-card__tags">
+                            <span class="tag">Emotions</span>
+                            <span class="tag">Cleansing</span>
+                            <span class="tag">Flow</span>
+                        </div>
+                        <a href="dictionary.html" class="dream-card__link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </article>
+                    
+                    <article class="dream-card">
+                        <div class="dream-card__icon">
+                            <i class="fas fa-door-open"></i>
+                        </div>
+                        <h3 class="dream-card__title">Death Dreams</h3>
+                        <p class="dream-card__description">
+                            Transformation, endings, and new beginnings
+                        </p>
+                        <div class="dream-card__tags">
+                            <span class="tag">Change</span>
+                            <span class="tag">Rebirth</span>
+                            <span class="tag">Transition</span>
+                        </div>
+                        <a href="dictionary.html" class="dream-card__link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </article>
+                    
+                    <article class="dream-card">
+                        <div class="dream-card__icon">
+                            <i class="fas fa-paw"></i>
+                        </div>
+                        <h3 class="dream-card__title">Animal Dreams</h3>
+                        <p class="dream-card__description">
+                            Instincts, desires, and untamed aspects of personality
+                        </p>
+                        <div class="dream-card__tags">
+                            <span class="tag">Instincts</span>
+                            <span class="tag">Nature</span>
+                            <span class="tag">Power</span>
+                        </div>
+                        <a href="dictionary.html" class="dream-card__link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Rest of your sections remain the same -->
+        
+        <!-- Pricing Section with updated buttons -->
+        <section class="pricing section" id="pricing">
+            <div class="container">
+                <!-- Your existing pricing header -->
+                
+                <div class="pricing__grid">
+                    <!-- Free Plan -->
+                    <div class="pricing__card">
+                        <!-- Your existing free plan content -->
+                        <button class="card__button btn btn--secondary" onclick="window.location.href='signup.html'">
+                            Start Free
+                        </button>
+                    </div>
+                    
+                    <!-- Premium Plan -->
+                    <div class="pricing__card featured">
+                        <!-- Your existing premium plan content -->
+                        <button class="card__button btn btn--primary" onclick="window.location.href='signup.html'">
+                            Go Premium
+                        </button>
+                    </div>
+                    
+                    <!-- Pro Plan -->
+                    <div class="pricing__card">
+                        <!-- Your existing pro plan content -->
+                        <button class="card__button btn btn--secondary" onclick="window.location.href='contact.html'">
+                            Contact Us
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container container">
+            <!-- Footer Top -->
+            <div class="footer__top">
+                <div class="footer__brand">
+                    <a href="index.html" class="footer__logo">
+                        <i class="fas fa-moon"></i>
+                        <span>DreamGate</span>
+                    </a>
+                    <p class="footer__description">
+                        Unlock the mysteries of your subconscious mind with AI-powered dream interpretation.
+                    </p>
+                    <div class="footer__social">
+                        <a href="https://facebook.com" target="_blank" rel="noopener" class="social__link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener" class="social__link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener" class="social__link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://youtube.com" target="_blank" rel="noopener" class="social__link" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Footer Links -->
+                <div class="footer__links">
+                    <div class="footer__group">
+                        <h3 class="footer__title">Features</h3>
+                        <ul class="footer__list">
+                            <li><a href="interpreter.html" class="footer__link">Dream Interpreter</a></li>
+                            <li><a href="dictionary.html" class="footer__link">Symbol Dictionary</a></li>
+                            <li><a href="journal.html" class="footer__link">Dream Journal</a></li>
+                            <li><a href="community.html" class="footer__link">Community</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__group">
+                        <h3 class="footer__title">Company</h3>
+                        <ul class="footer__list">
+                            <li><a href="about.html" class="footer__link">About Us</a></li>
+                            <li><a href="contact.html" class="footer__link">Contact</a></li>
+                            <li><a href="careers.html" class="footer__link">Careers</a></li>
+                            <li><a href="press.html" class="footer__link">Press Kit</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__group">
+                        <h3 class="footer__title">Support</h3>
+                        <ul class="footer__list">
+                            <li><a href="help.html" class="footer__link">Help Center</a></li>
+                            <li><a href="faq.html" class="footer__link">FAQ</a></li>
+                            <li><a href="privacy.html" class="footer__link">Privacy Policy</a></li>
+                            <li><a href="terms.html" class="footer__link">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="footer__newsletter">
+                    <h3 class="footer__title">Newsletter</h3>
+                    <p class="newsletter__text">
+                        Get weekly dream insights and tips
+                    </p>
+                    <form class="newsletter__form" id="newsletter-form">
+                        <input 
+                            type="email" 
+                            class="newsletter__input" 
+                            placeholder="Your email"
+                            required>
+                        <button type="submit" class="newsletter__button">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="footer__bottom">
+                <p class="footer__copyright">
+                    &copy; 2025 DreamGate. All rights reserved.
+                </p>
+                <div class="footer__terms">
+                    <a href="privacy.html" class="terms__link">Privacy</a>
+                    <span class="separator">•</span>
+                    <a href="terms.html" class="terms__link">Terms</a>
+                    <span class="separator">•</span>
+                    <a href="cookies.html" class="terms__link">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scroll to Top Button -->
+    <button class="scrolltop" id="scroll-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    
+    <!-- Updated JavaScript -->
+    <script>
+        /* Keep your existing JavaScript code but update these specific functions */
+        
+        // Update the auth buttons to prevent default if pages don't exist
+        function initAuthButtons() {
+            if (elements.loginBtn) {
+                elements.loginBtn.addEventListener('click', () => {
+                    // Check if login.html exists, otherwise show notification
+                    window.location.href = 'login.html';
+                });
+            }
+            
+            if (elements.signupBtn) {
+                elements.signupBtn.addEventListener('click', () => {
+                    // Check if signup.html exists, otherwise show notification
+                    window.location.href = 'signup.html';
+                });
+            }
+        }
+        
+        // Add function to handle missing pages
+        function handleMissingPages() {
+            // List of pages that might not exist yet
+            const placeholderPages = [
+                'community.html',
+                'about.html',
+                'careers.html',
+                'press.html',
+                'help.html',
+                'faq.html',
+                'privacy.html',
+                'terms.html',
+                'cookies.html',
+                'login.html',
+                'signup.html'
+            ];
+            
+            // Add event listeners to links
+            document.querySelectorAll('a').forEach(link => {
+                const href = link.getAttribute('href');
+                if (placeholderPages.includes(href)) {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const pageName = href.replace('.html', '').replace('-', ' ');
+                        showNotification(`The ${pageName} page is coming soon!`, 'info');
+                    });
+                }
+            });
+        }
+        
+        // Add to your init function
+        function init() {
+            // Your existing init code...
+            
+            // Add this line
+            handleMissingPages();
+        }
+        
+        /* Rest of your JavaScript remains the same */
+    </script>
+</body>
+</html>
