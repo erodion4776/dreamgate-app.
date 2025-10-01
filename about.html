@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - DreamGate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS FROM INTERPRETER.CSS FOR CONSISTENT STYLING */
+        :root {
+            --primary-color: #8a2be2; --primary-light: #a78bfa; --bg-dark: #0c0a1f;
+            --bg-card: rgba(30, 27, 58, 0.8); --text-white: #ffffff; --text-light: #e0e0e0;
+            --text-gray: #c7c7c7; --border-color: #3a3a5a; --z-fixed: 100;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: var(--bg-dark); color: var(--text-light); line-height: 1.6; }
+        .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 1rem; }
+        a { text-decoration: none; color: var(--primary-light); }
+        .btn--primary { display: inline-block; padding: 0.8rem 1.5rem; font-weight: 500; color: white; background: var(--gradient-primary); border: none; border-radius: 9999px; cursor: pointer; }
+        
+        /* HEADER AND MENU STYLES */
+        .header { position: sticky; top: 0; width: 100%; background: var(--bg-dark); z-index: var(--z-fixed); border-bottom: 1px solid var(--border-color); }
+        .nav { height: 4.5rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav__logo { display: flex; align-items: center; gap: 0.5rem; font-size: 1.25rem; font-weight: 700; color: var(--text-white); }
+        .nav__logo i { color: var(--primary-light); }
+        .nav__toggle { font-size: 1.5rem; cursor: pointer; color: var(--text-light); }
+        .nav__menu { position: fixed; top: 0; right: -100%; width: 70%; height: 100%; background: #120f2b; padding: 6rem 2rem 2rem; transition: right 0.4s ease-in-out; z-index: var(--z-fixed); }
+        .nav__menu.show-menu { right: 0; }
+        .nav__list { list-style: none; display: flex; flex-direction: column; align-items: center; gap: 2.5rem; }
+        .nav__link { color: var(--text-light); font-weight: 500; font-size: 1.2rem; }
+        .nav__close { position: absolute; top: 1.2rem; right: 1.5rem; font-size: 1.5rem; cursor: pointer; }
+        @media screen and (min-width: 768px) { .nav__toggle, .nav__close { display: none; } .nav__menu { position: static; width: auto; height: auto; background: none; padding: 0; } .nav__list { flex-direction: row; gap: 2rem; } .nav__link { font-size: 1rem; } }
+
+        /* ABOUT PAGE SPECIFIC STYLES */
+        .main { padding-top: 2rem; }
+        .page-header { text-align: center; margin-bottom: 2rem; }
+        .page-title { font-size: 2.5rem; color: var(--text-white); }
+        .page-subtitle { color: var(--text-gray); font-size: 1.1rem; }
+        .interpreter__grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+        .input-panel, .output-panel { background: var(--bg-card); padding: 2rem; border-radius: 1rem; }
+        .panel-title { color: var(--primary-light); margin-bottom: 1rem; }
+        .input-panel h3 { color: var(--text-white); margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        .input-panel p, .input-panel ul { color: var(--text-gray); }
+        .input-panel ul { list-style-position: inside; padding-left: 0.5rem; }
+        .output-panel .btn--primary { margin-top: 1.5rem; }
+        .footer { text-align: center; padding: 2rem 0; margin-top: 2rem; border-top: 1px solid var(--border-color); font-size: 0.9rem; color: var(--text-gray); }
+        @media screen and (min-width: 1024px) { .interpreter__grid { grid-template-columns: 2fr 1fr; } }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo"><i class="fas fa-moon"></i><span>DreamGate</span></a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="interpreter.html" class="nav__link">Interpreter</a></li>
+                    <li class="nav__item"><a href="dictionary.html" class="nav__link">Dictionary</a></li>
+                    <li class="nav__item"><a href="journal.html" class="nav__link">Journal</a></li>
+                </ul>
+                <div class="nav__close" id="nav-close"><i class="fas fa-times"></i></div>
+            </div>
+            <div class="nav__toggle" id="nav-toggle"><i class="fas fa-bars"></i></div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="section interpreter">
+            <div class="container">
+                <div class="page-header">
+                    <h1 class="page-title">About DreamGate</h1>
+                    <p class="page-subtitle">We help you understand your dreams with compassionate, AI-powered insight.</p>
+                </div>
+
+                <div class="interpreter__grid">
+                    <div class="input-panel">
+                        <h2 class="panel-title">Our Mission</h2>
+                        <p>DreamGate exists to make self-understanding accessible. We combine psychology, symbolism, cultural context and spiritual perspectives to provide compassionate, practical dream interpretations that help you reflect, heal, and grow.</p>
+                        <h3>What we do</h3>
+                        <ul>
+                            <li>Provide AI-assisted dream interpretations that are empathetic and practical.</li>
+                            <li>Offer a private dream journal to track personal patterns over time.</li>
+                            <li>Provide resources to explore symbolism and emotional meaning.</li>
+                        </ul>
+                        <h3>Our values</h3>
+                        <p>Compassion, privacy, clarity and user empowerment. Our AI is a tool to support your personal reflection — not a substitute for professional advice.</p>
+                        <h3>Contact</h3>
+                        <p>Questions or partnership inquiries? Email <a href="mailto:support@dreamgate.example.com">support@dreamgate.example.com</a></p>
+                    </div>
+
+                    <aside class="output-panel">
+                        <h2 class="panel-title">Meet the Team</h2>
+                        <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem;">
+                            <div style="flex:1; min-width:160px; background:var(--bg-dark); padding:1rem; border-radius:8px; border:1px solid var(--border-color);">
+                                <h4 style="margin-bottom:.25rem;">Founder</h4>
+                                <p style="color:var(--text-gray);">Osarodion — Vision and product</p>
+                            </div>
+                            <div style="flex:1; min-width:160px; background:var(--bg-dark); padding:1rem; border-radius:8px; border:1px solid var(--border-color);">
+                                <h4 style="margin-bottom:.25rem;">Lead AI</h4>
+                                <p style="color:var(--text-gray);">Data & prompt engineering</p>
+                            </div>
+                        </div>
+                        <h3 style="margin-top:1.5rem;">Careers</h3>
+                        <p style="color:var(--text-gray);">We occasionally hire for engineering, design, and community roles. Interested? Email <a href="mailto:jobs@dreamgate.example.com">jobs@dreamgate.example.com</a>.</p>
+                        <a href="index.html" class="btn--primary">Back to Home</a>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 DreamGate. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JAVASCRIPT FOR MENU (FROM INTERPRETER.JS)
+        const navMenu = document.getElementById('nav-menu');
+        const navToggle = document.getElementById('nav-toggle');
+        const navClose = document.getElementById('nav-close');
+        if(navToggle) { navToggle.addEventListener('click', () => { navMenu.classList.add('show-menu') }) }
+        if(navClose) { navClose.addEventListener('click', () => { navMenu.classList.remove('show-menu') }) }
+    </script>
+</body>
+</html>
