@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - DreamGate</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-light: #a78bfa; --bg-dark: #0c0a1f; --bg-card: rgba(30, 27, 58, 0.8);
+            --text-white: #ffffff; --text-light: #e0e0e0; --text-gray: #c7c7c7; 
+            --border-color: #3a3a5a; --z-fixed: 100;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: var(--bg-dark); color: var(--text-light); line-height: 1.8; }
+        .container { width: 100%; max-width: 800px; margin: 0 auto; padding: 0 1rem; }
+        a { text-decoration: none; color: var(--primary-light); }
+        .header { position: sticky; top: 0; width: 100%; background: var(--bg-dark); z-index: var(--z-fixed); border-bottom: 1px solid var(--border-color); }
+        .nav { height: 4.5rem; display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 1rem;}
+        .nav__logo { display: flex; align-items: center; gap: 0.5rem; font-size: 1.25rem; font-weight: 700; color: var(--text-white); }
+        .nav__logo i { color: var(--primary-light); }
+        .nav__toggle { font-size: 1.5rem; cursor: pointer; color: var(--text-light); }
+        .nav__menu { position: fixed; top: 0; right: -100%; width: 70%; height: 100%; background: #120f2b; padding: 6rem 2rem 2rem; transition: right 0.4s ease-in-out; z-index: var(--z-fixed); }
+        .nav__menu.show-menu { right: 0; }
+        .nav__list { list-style: none; display: flex; flex-direction: column; align-items: center; gap: 2.5rem; }
+        .nav__link { color: var(--text-light); font-weight: 500; font-size: 1.2rem; }
+        .nav__close { position: absolute; top: 1.2rem; right: 1.5rem; font-size: 1.5rem; cursor: pointer; }
+        @media screen and (min-width: 768px) { .nav__toggle, .nav__close { display: none; } .nav__menu { position: static; width: auto; height: auto; background: none; padding: 0; } .nav__list { flex-direction: row; gap: 2rem; } .nav__link { font-size: 1rem; } }
+        .main { padding-top: 4rem; padding-bottom: 4rem; }
+        .page-header { text-align: center; margin-bottom: 3rem; }
+        .page-title { font-size: 2.8rem; color: var(--text-white); }
+        .page-content h2 { font-size: 1.8rem; color: var(--primary-light); margin-top: 2.5rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;}
+        .page-content h3 { font-size: 1.4rem; color: var(--text-white); margin-top: 2rem; margin-bottom: 0.5rem; }
+        .page-content p, .page-content ul { color: var(--text-gray); margin-bottom: 1rem; }
+        .page-content ul { list-style-position: inside; padding-left: 0.5rem; }
+        .footer { text-align: center; padding: 2rem 0; margin-top: 2rem; border-top: 1px solid var(--border-color); font-size: 0.9rem; color: var(--text-gray); }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <nav class="nav">
+            <a href="index.html" class="nav__logo"><i class="fas fa-moon"></i><span>DreamGate</span></a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="interpreter.html" class="nav__link">Interpreter</a></li>
+                    <li class="nav__item"><a href="dictionary.html" class="nav__link">Dictionary</a></li>
+                    <li class="nav__item"><a href="journal.html" class="nav__link">Journal</a></li>
+                </ul>
+                <div class="nav__close" id="nav-close"><i class="fas fa-times"></i></div>
+            </div>
+            <div class="nav__toggle" id="nav-toggle"><i class="fas fa-bars"></i></div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Privacy Policy</h1>
+            </div>
+            <div class="page-content">
+                <p><strong>Last Updated: October 1, 2025</strong></p>
+                <p>Welcome to DreamGate. Your privacy is critically important to us. This Privacy Policy outlines how we collect, use, and protect your information.</p>
+
+                <h2>1. Information We Collect</h2>
+                <p>We collect information in the following ways:</p>
+                <ul>
+                    <li><strong>Information you provide:</strong> This includes the text of the dreams you submit for interpretation, your email address if you create an account, and any feedback you send us.</li>
+                    <li><strong>Usage Data:</strong> We may collect anonymous data about how you interact with our service, such as which features you use and the frequency of your visits, to help us improve the app.</li>
+                </ul>
+
+                <h2>2. How We Use Your Information</h2>
+                <p>Your information is used for the following purposes:</p>
+                <ul>
+                    <li><strong>To Provide the Service:</strong> The dream text you submit is sent to our AI provider (Google Gemini) solely to generate your interpretation. We do not use it for any other purpose.</li>
+                    <li><strong>To Manage Your Account:</strong> If you create an account, your email is used for login, password resets, and important service announcements.</li>
+                    <li><strong>To Improve Our Service:</strong> Anonymous usage data helps us understand what is working and what isn't, so we can make DreamGate better.</li>
+                </ul>
+                
+                <h2>3. Data Storage and Security</h2>
+                <p><strong>Interpretations:</strong> Dreams submitted for interpretation are processed by the AI and are not stored on our servers unless you explicitly save the interpretation to your Dream Journal.</p>
+                <p><strong>Dream Journal:</strong> If you use the Dream Journal feature, your saved dreams and interpretations are stored securely in our database (Supabase). This data is encrypted and accessible only to you through your account.</p>
+                <p>We implement industry-standard security measures to protect your data from unauthorized access.</p>
+
+                <h2>4. Sharing of Your Information</h2>
+                <p>We do not and will not sell, rent, or trade your personal information with any third parties for marketing purposes. Your anonymous dream text is shared with our AI provider for the sole purpose of generating an interpretation and is subject to their privacy policies.</p>
+
+                <h2>5. Your Rights</h2>
+                <p>You have the right to access, correct, or delete your personal information. If you have a Dream Journal account, you can manage your saved entries directly within the app. To request the deletion of your entire account and all associated data, please contact us.</p>
+                
+                <h2>6. Changes to This Policy</h2>
+                <p>We may update this Privacy Policy from time to time. We will notify you of any significant changes by posting the new policy on this page. We encourage you to review this policy periodically.</p>
+
+                <h2>7. Contact Us</h2>
+                <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:privacy@dreamgate.com">privacy@dreamgate.com</a>.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 DreamGate. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const navMenu = document.getElementById('nav-menu'), navToggle = document.getElementById('nav-toggle'), navClose = document.getElementById('nav-close');
+        if(navToggle) { navToggle.addEventListener('click', () => { navMenu.classList.add('show-menu') }) }
+        if(navClose) { navClose.addEventListener('click', () => { navMenu.classList.remove('show-menu') }) }
+    </script>
+</body>
+</html>
