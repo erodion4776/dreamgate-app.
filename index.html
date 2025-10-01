@@ -1,0 +1,734 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DreamGate - Unlock the meaning of your dreams with AI-powered interpretation">
+    <meta name="keywords" content="dream interpretation, dream meaning, dream journal, dream analysis">
+    <meta name="author" content="DreamGate">
+    
+    <title>DreamGate - Unlock the Meaning of Your Dreams</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    
+    <!-- Header Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <!-- Logo -->
+            <a href="index.html" class="nav__logo">
+                <i class="fas fa-moon"></i>
+                <span>DreamGate</span>
+            </a>
+            
+            <!-- Navigation Menu -->
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link active">
+                            <i class="fas fa-home nav__icon"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="interpreter.html" class="nav__link">
+                            <i class="fas fa-brain nav__icon"></i>
+                            <span>Interpreter</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="dictionary.html" class="nav__link">
+                            <i class="fas fa-book nav__icon"></i>
+                            <span>Dictionary</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="journal.html" class="nav__link">
+                            <i class="fas fa-journal-whills nav__icon"></i>
+                            <span>Journal</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="community.html" class="nav__link">
+                            <i class="fas fa-users nav__icon"></i>
+                            <span>Community</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="contact.html" class="nav__link">
+                            <i class="fas fa-envelope nav__icon"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <!-- Close button for mobile -->
+                <div class="nav__close" id="nav-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            
+            <!-- Nav buttons -->
+            <div class="nav__buttons">
+                <button class="nav__login-btn" id="login-btn">Login</button>
+                <button class="nav__signup-btn" id="signup-btn">Sign Up</button>
+                
+                <!-- Mobile menu toggle -->
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="main">
+        
+        <!-- Hero Section -->
+        <section class="hero section" id="hero">
+            <div class="hero__bg">
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+            </div>
+            
+            <div class="hero__container container">
+                <!-- AI Avatar -->
+                <div class="hero__avatar">
+                    <div class="avatar__icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="avatar__glow"></div>
+                    <div class="avatar__status">
+                        <span class="status__dot"></span>
+                        <span class="status__text">AI Online</span>
+                    </div>
+                </div>
+                
+                <!-- Hero Content -->
+                <div class="hero__content">
+                    <h1 class="hero__title">
+                        Unlock the <span class="gradient-text">Meaning</span> of Your Dreams
+                    </h1>
+                    <p class="hero__description">
+                        Tell me your dream, and I'll guide you to its deeper meaning using advanced AI interpretation
+                    </p>
+                    
+                    <!-- Trust Stats -->
+                    <div class="hero__stats">
+                        <div class="stat">
+                            <i class="fas fa-users stat__icon"></i>
+                            <h3 class="stat__number" data-target="50000">0</h3>
+                            <p class="stat__text">Dreams Interpreted</p>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-star stat__icon"></i>
+                            <h3 class="stat__number" data-target="4.9">0</h3>
+                            <p class="stat__text">User Rating</p>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-globe stat__icon"></i>
+                            <h3 class="stat__number" data-target="120">0</h3>
+                            <p class="stat__text">Countries</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Dream Input -->
+                    <div class="hero__input">
+                        <div class="input__container">
+                            <textarea 
+                                class="input__textarea" 
+                                id="dream-input"
+                                placeholder="Type your dream here... (e.g., I was flying over the ocean...)"
+                                rows="4"></textarea>
+                            <div class="input__footer">
+                                <span class="char-count">
+                                    <span id="current-chars">0</span>/5000
+                                </span>
+                                <button class="voice-btn" id="voice-input">
+                                    <i class="fas fa-microphone"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="hero__buttons">
+                            <button class="btn btn--primary btn--large" id="interpret-btn">
+                                <i class="fas fa-sparkles"></i>
+                                <span>Interpret My Dream</span>
+                            </button>
+                            <a href="dictionary.html" class="btn btn--secondary btn--large">
+                                <i class="fas fa-book"></i>
+                                <span>Browse Dictionary</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Featured Dream Meanings -->
+        <section class="featured section" id="featured">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Common Dream Themes</h2>
+                    <p class="section__subtitle">
+                        Click on any card to explore detailed interpretations
+                    </p>
+                </div>
+                
+                <div class="featured__grid">
+                    <!-- Flying Dreams Card -->
+                    <article class="dream-card">
+                        <div class="dream-card__icon">
+                            <i class="fas fa-dove"></i>
+                        </div>
+                        <h3 class="dream-card__title">Flying Dreams</h3>
+                        <p class="dream-card__description">
+                            Freedom, ambition, and desire to escape limitations
+                        </p>
+                        <div class="dream-card__tags">
+                            <span class="tag">Freedom</span>
+                            <span class="tag">Control</span>
+                            <span class="tag">Ambition</span>
+                        </div>
+                        <a href="dictionary.html" class="dream-card__link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </article>
+                    
+                    <!-- Teeth Falling Card -->
+                    <article class="dream-card">
+                        <div class="dream-card__icon">
+                            <i class="fas fa-tooth"></i>
+                        </div>
+                        <h3 class="dream-card__title">Teeth Falling Out</h3>
+                        <p class="dream-card__description">
+                            Anxiety about appearance or feelings of powerlessness
+                        </p>
+                        <div class="dream-card__tags">
+                            <span class="tag">Anxiety</span>
+                            <span class="tag">Change</span>
+                            <span class="tag">Loss</span>
+                        </div>
+                        <a href="dictionary.html" class="dream-card__link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </article>
+                    
+                    <!-- Being Chased Card -->
+                    <article class="dream-card">
+                        <div class="dream-card__icon">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <h3 class="dream-card__title">Being Chased</h3>
+                        <p class="dream-card__description">
+                            Avoiding something in real life or running from fears
+                        </p>
+                        <div class="dream-card__tags">
+                            <span class="tag">Fear</span>
+                            <span class="tag">Avoidance</span>
+                            <span class="tag">Stress</span>
+                        </div>
+                        <a href="dictionary.html" class="dream-card__link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </article>
+                    
+                    <!-- Water Dreams Card -->
+                    <article class="dream-card">
+                        <div class="dream-card__icon">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <h3 class="dream-card__title">Water Dreams</h3>
+                        <p class="dream-card__description">
+                            Emotions, spiritual cleansing, and subconscious thoughts
+                        </p>
+                        <div class="dream-card__tags">
+                            <span class="tag">Emotions</span>
+                            <span class="tag">Cleansing</span>
+                            <span class="tag">Flow</span>
+                        </div>
+                        <a href="dictionary.html" class="dream-card__link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </article>
+                    
+                    <!-- Death Dreams Card -->
+                    <article class="dream-card">
+                        <div class="dream-card__icon">
+                            <i class="fas fa-door-open"></i>
+                        </div>
+                        <h3 class="dream-card__title">Death Dreams</h3>
+                        <p class="dream-card__description">
+                            Transformation, endings, and new beginnings
+                        </p>
+                        <div class="dream-card__tags">
+                            <span class="tag">Change</span>
+                            <span class="tag">Rebirth</span>
+                            <span class="tag">Transition</span>
+                        </div>
+                        <a href="dictionary.html" class="dream-card__link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </article>
+                    
+                    <!-- Animal Dreams Card -->
+                    <article class="dream-card">
+                        <div class="dream-card__icon">
+                            <i class="fas fa-paw"></i>
+                        </div>
+                        <h3 class="dream-card__title">Animal Dreams</h3>
+                        <p class="dream-card__description">
+                            Instincts, desires, and untamed aspects of personality
+                        </p>
+                        <div class="dream-card__tags">
+                            <span class="tag">Instincts</span>
+                            <span class="tag">Nature</span>
+                            <span class="tag">Power</span>
+                        </div>
+                        <a href="dictionary.html" class="dream-card__link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+        
+        <!-- How It Works -->
+        <section class="process section" id="how-it-works">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">How DreamGate Works</h2>
+                    <p class="section__subtitle">
+                        Your journey to understanding dreams in 4 simple steps
+                    </p>
+                </div>
+                
+                <div class="process__timeline">
+                    <div class="process__step">
+                        <div class="step__number">1</div>
+                        <div class="step__icon">
+                            <i class="fas fa-pencil-alt"></i>
+                        </div>
+                        <h3 class="step__title">Share Your Dream</h3>
+                        <p class="step__description">
+                            Type or speak your dream with as much detail as you remember
+                        </p>
+                    </div>
+                    
+                    <div class="process__connector"></div>
+                    
+                    <div class="process__step">
+                        <div class="step__number">2</div>
+                        <div class="step__icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="step__title">AI Analysis</h3>
+                        <p class="step__description">
+                            Our AI analyzes symbols, patterns, and emotional context
+                        </p>
+                    </div>
+                    
+                    <div class="process__connector"></div>
+                    
+                    <div class="process__step">
+                        <div class="step__number">3</div>
+                        <div class="step__icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="step__title">Get Insights</h3>
+                        <p class="step__description">
+                            Receive personalized interpretation with actionable guidance
+                        </p>
+                    </div>
+                    
+                    <div class="process__connector"></div>
+                    
+                    <div class="process__step">
+                        <div class="step__number">4</div>
+                        <div class="step__icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3 class="step__title">Track & Learn</h3>
+                        <p class="step__description">
+                            Save to journal and discover patterns over time
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonials -->
+        <section class="testimonials section" id="testimonials">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">What Our Dreamers Say</h2>
+                    <p class="section__subtitle">
+                        Real experiences from our community
+                    </p>
+                </div>
+                
+                <div class="testimonials__slider">
+                    <div class="testimonial active">
+                        <div class="testimonial__quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial__text">
+                            "I finally understood my recurring dream about my late father. 
+                            The interpretation brought me peace and closure I didn't know I needed."
+                        </p>
+                        <div class="testimonial__author">
+                            <img src="https://i.pravatar.cc/60?img=1" alt="Sarah" class="author__img">
+                            <div class="author__info">
+                                <h4 class="author__name">Sarah Mitchell</h4>
+                                <div class="author__rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial__quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial__text">
+                            "The dream journal feature helps me track patterns. 
+                            I discovered my anxiety dreams always happen before big meetings!"
+                        </p>
+                        <div class="testimonial__author">
+                            <img src="https://i.pravatar.cc/60?img=3" alt="Michael" class="author__img">
+                            <div class="author__info">
+                                <h4 class="author__name">Michael Chen</h4>
+                                <div class="author__rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial__quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial__text">
+                            "Amazing AI interpretations! It combines psychology, 
+                            spirituality, and cultural meanings perfectly."
+                        </p>
+                        <div class="testimonial__author">
+                            <img src="https://i.pravatar.cc/60?img=5" alt="Lisa" class="author__img">
+                            <div class="author__info">
+                                <h4 class="author__name">Lisa Rodriguez</h4>
+                                <div class="author__rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slider Dots -->
+                <div class="testimonials__dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Pricing -->
+        <section class="pricing section" id="pricing">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Choose Your Dream Journey</h2>
+                    <p class="section__subtitle">
+                        Start free and upgrade as you grow
+                    </p>
+                </div>
+                
+                <div class="pricing__grid">
+                    <!-- Free Plan -->
+                    <div class="pricing__card">
+                        <div class="card__header">
+                            <h3 class="card__name">Free Explorer</h3>
+                            <div class="card__price">
+                                <span class="price__currency">$</span>
+                                <span class="price__amount">0</span>
+                                <span class="price__period">/month</span>
+                            </div>
+                        </div>
+                        <ul class="card__features">
+                            <li class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>3 interpretations per month</span>
+                            </li>
+                            <li class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Basic dream dictionary</span>
+                            </li>
+                            <li class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Community access</span>
+                            </li>
+                            <li class="feature disabled">
+                                <i class="fas fa-times"></i>
+                                <span>Dream journal</span>
+                            </li>
+                            <li class="feature disabled">
+                                <i class="fas fa-times"></i>
+                                <span>Advanced AI insights</span>
+                            </li>
+                        </ul>
+                        <button class="card__button btn btn--secondary" onclick="window.location.href='signup.html'">
+                            Start Free
+                        </button>
+                    </div>
+                    
+                    <!-- Premium Plan -->
+                    <div class="pricing__card featured">
+                        <div class="card__badge">Most Popular</div>
+                        <div class="card__header">
+                            <h3 class="card__name">Dream Master</h3>
+                            <div class="card__price">
+                                <span class="price__currency">$</span>
+                                <span class="price__amount">9</span>
+                                <span class="price__period">/month</span>
+                            </div>
+                        </div>
+                        <ul class="card__features">
+                            <li class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Unlimited interpretations</span>
+                            </li>
+                            <li class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Full dream dictionary</span>
+                            </li>
+                            <li class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Personal dream journal</span>
+                            </li>
+                            <li class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Pattern recognition</span>
+                            </li>
+                            <li class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Priority support</span>
+                            </li>
+                        </ul>
+                        <button class="card__button btn btn--primary" onclick="window.location.href='signup.html'">
+                            Go Premium
+                        </button>
+                    </div>
+                    
+                    <!-- Pro Plan -->
+                    <div class="pricing__card">
+                        <div class="card__header">
+                            <h3 class="card__name">Mystic Prophet</h3>
+                            <div class="card__price">
+                                <span class="price__currency">$</span>
+                                <span class="price__amount">19</span>
+                                <span class="price__period">/month</span>
+                            </div>
+                        </div>
+                        <ul class="card__features">
+                            <li class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Everything in Premium</span>
+                            </li>
+                            <li class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>1-on-1 dream coaching</span>
+                            </li>
+                            <li class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Spiritual guidance</span>
+                            </li>
+                            <li class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Audio interpretations</span>
+                            </li>
+                            <li class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>White-label options</span>
+                            </li>
+                        </ul>
+                        <button class="card__button btn btn--secondary" onclick="window.location.href='contact.html'">
+                            Contact Us
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="cta section" id="cta">
+            <div class="container">
+                <div class="cta__content">
+                    <h2 class="cta__title">
+                        Your Dreams Are Messages
+                    </h2>
+                    <p class="cta__description">
+                        Start your journey today and discover the wisdom hidden within your subconscious
+                    </p>
+                    <div class="cta__buttons">
+                        <a href="interpreter.html" class="btn btn--primary btn--large">
+                            <i class="fas fa-sparkles"></i>
+                            Start Dream Analysis
+                        </a>
+                        <button class="btn btn--secondary btn--large" id="watch-demo">
+                            <i class="fas fa-play-circle"></i>
+                            Watch Demo
+                        </button>
+                    </div>
+                    <div class="cta__features">
+                        <span class="feature">
+                            <i class="fas fa-check-circle"></i> Free to start
+                        </span>
+                        <span class="feature">
+                            <i class="fas fa-check-circle"></i> No credit card
+                        </span>
+                        <span class="feature">
+                            <i class="fas fa-check-circle"></i> Cancel anytime
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container container">
+            <!-- Footer Top -->
+            <div class="footer__top">
+                <div class="footer__brand">
+                    <a href="index.html" class="footer__logo">
+                        <i class="fas fa-moon"></i>
+                        <span>DreamGate</span>
+                    </a>
+                    <p class="footer__description">
+                        Unlock the mysteries of your subconscious mind with AI-powered dream interpretation.
+                    </p>
+                    <div class="footer__social">
+                        <a href="https://facebook.com" target="_blank" rel="noopener" class="social__link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener" class="social__link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener" class="social__link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://youtube.com" target="_blank" rel="noopener" class="social__link" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Footer Links -->
+                <div class="footer__links">
+                    <div class="footer__group">
+                        <h3 class="footer__title">Features</h3>
+                        <ul class="footer__list">
+                            <li><a href="interpreter.html" class="footer__link">Dream Interpreter</a></li>
+                            <li><a href="dictionary.html" class="footer__link">Symbol Dictionary</a></li>
+                            <li><a href="journal.html" class="footer__link">Dream Journal</a></li>
+                            <li><a href="community.html" class="footer__link">Community</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__group">
+                        <h3 class="footer__title">Company</h3>
+                        <ul class="footer__list">
+                            <li><a href="about.html" class="footer__link">About Us</a></li>
+                            <li><a href="contact.html" class="footer__link">Contact</a></li>
+                            <li><a href="careers.html" class="footer__link">Careers</a></li>
+                            <li><a href="press.html" class="footer__link">Press Kit</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__group">
+                        <h3 class="footer__title">Support</h3>
+                        <ul class="footer__list">
+                            <li><a href="help.html" class="footer__link">Help Center</a></li>
+                            <li><a href="faq.html" class="footer__link">FAQ</a></li>
+                            <li><a href="privacy.html" class="footer__link">Privacy Policy</a></li>
+                            <li><a href="terms.html" class="footer__link">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="footer__newsletter">
+                    <h3 class="footer__title">Newsletter</h3>
+                    <p class="newsletter__text">
+                        Get weekly dream insights and tips
+                    </p>
+                    <form class="newsletter__form" id="newsletter-form">
+                        <input 
+                            type="email" 
+                            class="newsletter__input" 
+                            placeholder="Your email"
+                            required>
+                        <button type="submit" class="newsletter__button">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="footer__bottom">
+                <p class="footer__copyright">
+                    &copy; 2025 DreamGate. All rights reserved.
+                </p>
+                <div class="footer__terms">
+                    <a href="privacy.html" class="terms__link">Privacy</a>
+                    <span class="separator">•</span>
+                    <a href="terms.html" class="terms__link">Terms</a>
+                    <span class="separator">•</span>
+                    <a href="cookies.html" class="terms__link">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scroll to Top Button -->
+    <button class="scrolltop" id="scroll-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    
+    <!-- Main JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
