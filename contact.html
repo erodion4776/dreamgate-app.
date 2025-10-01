@@ -1,0 +1,1659 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact DreamGate - Get in touch with our team">
+    <meta name="keywords" content="contact, support, help, dream interpretation support">
+    <meta name="author" content="DreamGate">
+    
+    <title>Contact Us - DreamGate</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Embedded CSS -->
+    <style>
+/* =====================================
+   DREAMGATE CSS - MOBILE FIRST RESPONSIVE
+   ===================================== */
+
+
+/* ===== CSS VARIABLES ===== */
+:root {
+    /* Primary Colors */
+    --primary-color: #8a2be2;
+    --primary-dark: #6a1fb2;
+    --primary-light: #a78bfa;
+    
+    /* Background Colors */
+    --bg-dark: #0c0a1f;
+    --bg-dark-secondary: #120f2b;
+    --bg-card: rgba(30, 27, 58, 0.8);
+    --bg-card-hover: rgba(30, 27, 58, 0.95);
+    
+    /* Text Colors */
+    --text-white: #ffffff;
+    --text-light: #e0e0e0;
+    --text-gray: #c7c7c7;
+    --text-dark: #0c0a1f;
+    
+    /* Border & Other Colors */
+    --border-color: #3a3a5a;
+    --success-color: #4ade80;
+    --error-color: #ef4444;
+    --warning-color: #fbbf24;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #8a2be2 0%, #a78bfa 100%);
+    --gradient-dark: linear-gradient(180deg, #0c0a1f 0%, #120f2b 100%);
+    
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --spacing-3xl: 4rem;
+    
+    /* Font Sizes - Mobile First */
+    --fs-xs: 0.75rem;
+    --fs-sm: 0.875rem;
+    --fs-base: 1rem;
+    --fs-lg: 1.125rem;
+    --fs-xl: 1.25rem;
+    --fs-2xl: 1.5rem;
+    --fs-3xl: 1.875rem;
+    --fs-4xl: 2.25rem;
+    --fs-5xl: 3rem;
+    
+    /* Container Widths */
+    --container-sm: 640px;
+    --container-md: 768px;
+    --container-lg: 1024px;
+    --container-xl: 1280px;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 30px rgba(138, 43, 226, 0.2);
+    --shadow-xl: 0 20px 50px rgba(138, 43, 226, 0.3);
+    
+    /* Border Radius */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+    --radius-full: 9999px;
+    
+    /* Z-index */
+    --z-tooltip: 10;
+    --z-fixed: 100;
+    --z-modal: 1000;
+}
+
+
+/* ===== RESET & BASE STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: var(--fs-base);
+    background: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ===== CONTAINER ===== */
+.container {
+    width: 100%;
+    max-width: var(--container-xl);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+
+/* ===== SECTION SPACING ===== */
+.section {
+    padding: var(--spacing-3xl) 0;
+}
+
+
+/* ===== TYPOGRAPHY ===== */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--text-white);
+}
+
+
+h1 { font-size: var(--fs-3xl); }
+h2 { font-size: var(--fs-2xl); }
+h3 { font-size: var(--fs-xl); }
+h4 { font-size: var(--fs-lg); }
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-base);
+}
+
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* ===== BUTTONS ===== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: var(--fs-base);
+    font-weight: 500;
+    border-radius: var(--radius-full);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: var(--transition-base);
+    white-space: nowrap;
+    text-align: center;
+}
+
+
+.btn--primary {
+    background: var(--gradient-primary);
+    color: var(--text-white);
+}
+
+
+.btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+
+.btn--secondary {
+    background: transparent;
+    color: var(--primary-light);
+    border-color: var(--primary-light);
+}
+
+
+.btn--secondary:hover {
+    background: var(--primary-light);
+    color: var(--text-white);
+}
+
+
+.btn--large {
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: var(--fs-lg);
+}
+
+
+/* ===== HEADER & NAVIGATION ===== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(12, 10, 31, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: var(--z-fixed);
+    transition: var(--transition-base);
+}
+
+
+.nav {
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.nav__logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: var(--fs-xl);
+    font-weight: 700;
+    color: var(--primary-light);
+}
+
+
+.nav__logo i {
+    font-size: 1.5rem;
+}
+
+
+/* Mobile Menu */
+.nav__menu {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    background: var(--bg-dark-secondary);
+    padding: 4rem 0 3rem;
+    border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    transition: var(--transition-base);
+    z-index: var(--z-fixed);
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+.nav__menu.show-menu {
+    top: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.nav__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+    list-style: none;
+}
+
+
+.nav__link {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--text-light);
+    font-weight: 500;
+    padding: var(--spacing-sm);
+    transition: var(--transition-base);
+}
+
+
+.nav__link:hover,
+.nav__link.active {
+    color: var(--primary-light);
+}
+
+
+.nav__icon {
+    font-size: 1.2rem;
+}
+
+
+.nav__close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+
+
+.nav__close:hover {
+    color: var(--primary-light);
+}
+
+
+.nav__buttons {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+
+.nav__login-btn,
+.nav__signup-btn {
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-full);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-base);
+    border: none;
+    font-size: var(--fs-sm);
+}
+
+
+.nav__login-btn {
+    background: transparent;
+    color: var(--text-light);
+}
+
+
+.nav__login-btn:hover {
+    color: var(--primary-light);
+}
+
+
+.nav__signup-btn {
+    background: var(--gradient-primary);
+    color: var(--text-white);
+}
+
+
+.nav__signup-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+
+.nav__toggle {
+    font-size: 1.5rem;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+
+
+.nav__toggle:hover {
+    color: var(--primary-light);
+}
+
+
+/* ===== CONTACT SPECIFIC STYLES ===== */
+.contact {
+    padding-top: 6rem;
+    min-height: 100vh;
+}
+
+
+.contact__header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+
+.contact__title {
+    margin-bottom: var(--spacing-md);
+}
+
+
+.contact__subtitle {
+    color: var(--text-gray);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+.contact__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
+.contact__info {
+    order: 2;
+}
+
+
+.contact__form {
+    order: 1;
+}
+
+
+.info__cards {
+    display: grid;
+    gap: var(--spacing-lg);
+}
+
+
+.info__card {
+    background: var(--bg-card);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transition: var(--transition-base);
+}
+
+
+.info__card:hover {
+    border-color: var(--primary-light);
+    transform: translateY(-5px);
+}
+
+
+.info__icon {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    margin: 0 auto var(--spacing-md);
+}
+
+
+.info__title {
+    color: var(--primary-light);
+    margin-bottom: var(--spacing-sm);
+}
+
+
+.info__text {
+    color: var(--text-gray);
+    margin-bottom: var(--spacing-md);
+}
+
+
+.info__link {
+    color: var(--primary-light);
+    font-weight: 500;
+}
+
+
+.info__link:hover {
+    text-decoration: underline;
+}
+
+
+.form__container {
+    background: var(--bg-card);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-color);
+}
+
+
+.form__title {
+    color: var(--primary-light);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+
+.form__group {
+    margin-bottom: var(--spacing-lg);
+}
+
+
+.form__label {
+    display: block;
+    color: var(--primary-light);
+    font-weight: 500;
+    margin-bottom: var(--spacing-sm);
+}
+
+
+.form__input,
+.form__textarea,
+.form__select {
+    width: 100%;
+    padding: var(--spacing-md);
+    background: var(--bg-dark);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    color: var(--text-light);
+    font-family: inherit;
+    font-size: var(--fs-base);
+    transition: var(--transition-base);
+}
+
+
+.form__textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+
+.form__input:focus,
+.form__textarea:focus,
+.form__select:focus {
+    outline: none;
+    border-color: var(--primary-light);
+}
+
+
+.form__submit {
+    width: 100%;
+    margin-top: var(--spacing-md);
+}
+
+
+.form__status {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    display: none;
+}
+
+
+.form__status.success {
+    background: rgba(74, 222, 128, 0.1);
+    color: var(--success-color);
+    border: 1px solid var(--success-color);
+}
+
+
+.form__status.error {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--error-color);
+    border: 1px solid var(--error-color);
+}
+
+
+.faq__section {
+    margin-top: var(--spacing-3xl);
+}
+
+
+.faq__header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+
+.faq__title {
+    color: var(--primary-light);
+    margin-bottom: var(--spacing-md);
+}
+
+
+.faq__subtitle {
+    color: var(--text-gray);
+}
+
+
+.faq__list {
+    display: grid;
+    gap: var(--spacing-lg);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+.faq__item {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+
+.faq__question {
+    width: 100%;
+    padding: var(--spacing-xl);
+    background: none;
+    border: none;
+    color: var(--text-white);
+    font-size: var(--fs-lg);
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition-base);
+}
+
+
+.faq__question:hover {
+    color: var(--primary-light);
+}
+
+
+.faq__icon {
+    transition: var(--transition-base);
+}
+
+
+.faq__answer {
+    padding: 0 var(--spacing-xl) var(--spacing-xl);
+    color: var(--text-gray);
+    line-height: 1.7;
+    display: none;
+}
+
+
+.faq__item.active .faq__answer {
+    display: block;
+}
+
+
+.faq__item.active .faq__icon {
+    transform: rotate(180deg);
+}
+
+
+/* ===== FOOTER ===== */
+.footer {
+    background: var(--bg-dark-secondary);
+    padding: var(--spacing-2xl) 0 var(--spacing-lg);
+    margin-top: var(--spacing-3xl);
+    border-top: 1px solid var(--border-color);
+}
+
+
+.footer__top {
+    padding-bottom: var(--spacing-xl);
+}
+
+
+.footer__brand {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+
+.footer__logo {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: var(--fs-xl);
+    font-weight: 700;
+    color: var(--primary-light);
+    margin-bottom: var(--spacing-md);
+}
+
+
+.footer__description {
+    color: var(--text-gray);
+    margin-bottom: var(--spacing-lg);
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.footer__social {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+}
+
+
+.social__link {
+    width: 40px;
+    height: 40px;
+    background: var(--bg-card);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-light);
+    transition: var(--transition-base);
+}
+
+
+.social__link:hover {
+    background: var(--primary-light);
+    color: white;
+    transform: translateY(-3px);
+}
+
+
+.footer__links {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
+    text-align: center;
+}
+
+
+.footer__title {
+    color: var(--primary-light);
+    margin-bottom: var(--spacing-md);
+}
+
+
+.footer__list {
+    list-style: none;
+}
+
+
+.footer__list li {
+    margin-bottom: var(--spacing-sm);
+}
+
+
+.footer__link {
+    color: var(--text-gray);
+}
+
+
+.footer__link:hover {
+    color: var(--primary-light);
+}
+
+
+.footer__newsletter {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+
+.newsletter__text {
+    color: var(--text-gray);
+    margin-bottom: var(--spacing-md);
+}
+
+
+.newsletter__form {
+    display: flex;
+    gap: var(--spacing-sm);
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+
+.newsletter__input {
+    flex: 1;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
+    color: var(--text-light);
+}
+
+
+.newsletter__button {
+    width: 50px;
+    height: 40px;
+    background: var(--gradient-primary);
+    border: none;
+    border-radius: var(--radius-full);
+    color: white;
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+
+
+.newsletter__button:hover {
+    transform: translateX(3px);
+}
+
+
+.footer__bottom {
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+
+.footer__copyright {
+    color: var(--text-gray);
+    margin-bottom: var(--spacing-sm);
+}
+
+
+.footer__terms {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+
+.terms__link {
+    color: var(--text-gray);
+    font-size: var(--fs-sm);
+}
+
+
+.terms__link:hover {
+    color: var(--primary-light);
+}
+
+
+.separator {
+    color: var(--text-gray);
+}
+
+
+/* ===== SCROLL TO TOP ===== */
+.scrolltop {
+    position: fixed;
+    bottom: -100%;
+    right: 1rem;
+    width: 45px;
+    height: 45px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-base);
+    z-index: var(--z-tooltip);
+}
+
+
+.scrolltop.show-scroll {
+    bottom: 2rem;
+}
+
+
+.scrolltop:hover {
+    transform: translateY(-5px);
+}
+
+
+/* ===== MEDIA QUERIES ===== */
+
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width: 768px) {
+    .container {
+        padding: 0 var(--spacing-xl);
+    }
+    
+    /* Navigation Desktop */
+    .nav__menu {
+        position: static;
+        top: auto;
+        background: transparent;
+        padding: 0;
+        border-radius: 0;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        width: auto;
+    }
+    
+    .nav__list {
+        flex-direction: row;
+        gap: var(--spacing-xl);
+    }
+    
+    .nav__close,
+    .nav__toggle {
+        display: none;
+    }
+    
+    .nav__buttons {
+        gap: var(--spacing-lg);
+    }
+    
+    .nav__login-btn,
+    .nav__signup-btn {
+        padding: var(--spacing-sm) var(--spacing-lg);
+        font-size: var(--fs-base);
+    }
+    
+    .contact__content {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .contact__form {
+        order: 1;
+    }
+    
+    .contact__info {
+        order: 2;
+    }
+    
+    .info__cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer__links {
+        grid-template-columns: repeat(3, 1fr);
+        text-align: left;
+    }
+    
+    .footer__brand {
+        text-align: left;
+    }
+    
+    .footer__newsletter {
+        text-align: left;
+    }
+    
+    .newsletter__form {
+        margin: 0;
+    }
+}
+
+
+/* Large devices (desktops, 1024px and up) */
+@media screen and (min-width: 1024px) {
+    .footer__top {
+        display: grid;
+        grid-template-columns: 2fr 3fr 2fr;
+        gap: var(--spacing-3xl);
+        align-items: start;
+    }
+    
+    .footer__links {
+        margin-bottom: 0;
+    }
+    
+    .footer__newsletter {
+        margin-bottom: 0;
+    }
+}
+    </style>
+</head>
+<body>
+    
+    <!-- Header Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <!-- Logo -->
+            <a href="index.html" class="nav__logo">
+                <i class="fas fa-moon"></i>
+                <span>DreamGate</span>
+            </a>
+            
+            <!-- Navigation Menu -->
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">
+                            <i class="fas fa-home nav__icon"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="interpreter.html" class="nav__link">
+                            <i class="fas fa-brain nav__icon"></i>
+                            <span>Interpreter</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="dictionary.html" class="nav__link">
+                            <i class="fas fa-book nav__icon"></i>
+                            <span>Dictionary</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="journal.html" class="nav__link">
+                            <i class="fas fa-journal-whills nav__icon"></i>
+                            <span>Journal</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="community.html" class="nav__link">
+                            <i class="fas fa-users nav__icon"></i>
+                            <span>Community</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="contact.html" class="nav__link active">
+                            <i class="fas fa-envelope nav__icon"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <!-- Close button for mobile -->
+                <div class="nav__close" id="nav-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            
+            <!-- Nav buttons -->
+            <div class="nav__buttons">
+                <button class="nav__login-btn" id="login-btn">Login</button>
+                <button class="nav__signup-btn" id="signup-btn">Sign Up</button>
+                
+                <!-- Mobile menu toggle -->
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="main">
+        
+        <!-- Contact Section -->
+        <section class="contact section">
+            <div class="container">
+                
+                <!-- Header -->
+                <div class="contact__header">
+                    <h1 class="contact__title">
+                        <i class="fas fa-envelope"></i>
+                        Get in Touch
+                    </h1>
+                    <p class="contact__subtitle">
+                        Have questions about dream interpretation? Need support? We're here to help you on your dream journey.
+                    </p>
+                </div>
+                
+                <!-- Content -->
+                <div class="contact__content">
+                    
+                    <!-- Contact Form -->
+                    <div class="contact__form">
+                        <div class="form__container">
+                            <h2 class="form__title">Send Us a Message</h2>
+                            
+                            <form action="https://formspree.io/f/movkenpp" method="POST" id="contact-form">
+                                <div class="form__group">
+                                    <label for="name" class="form__label">Full Name</label>
+                                    <input type="text" id="name" name="name" class="form__input" required>
+                                </div>
+                                
+                                <div class="form__group">
+                                    <label for="email" class="form__label">Email Address</label>
+                                    <input type="email" id="email" name="email" class="form__input" required>
+                                </div>
+                                
+                                <div class="form__group">
+                                    <label for="subject" class="form__label">Subject</label>
+                                    <select id="subject" name="subject" class="form__select" required>
+                                        <option value="">Select a topic...</option>
+                                        <option value="general">General Question</option>
+                                        <option value="technical">Technical Support</option>
+                                        <option value="interpretation">Dream Interpretation Help</option>
+                                        <option value="billing">Billing & Subscription</option>
+                                        <option value="feature">Feature Request</option>
+                                        <option value="bug">Bug Report</option>
+                                        <option value="partnership">Partnership</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form__group">
+                                    <label for="message" class="form__label">Message</label>
+                                    <textarea id="message" name="message" class="form__textarea" placeholder="Tell us how we can help you..." required></textarea>
+                                </div>
+                                
+                                <button type="submit" class="btn btn--primary btn--large form__submit">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Send Message
+                                </button>
+                                
+                                <div class="form__status" id="form-status"></div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Info -->
+                    <div class="contact__info">
+                        <div class="info__cards">
+                            
+                            <div class="info__card">
+                                <div class="info__icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <h3 class="info__title">Email Support</h3>
+                                <p class="info__text">Get personalized help from our support team</p>
+                                <a href="mailto:support@dreamgate.com" class="info__link">support@dreamgate.com</a>
+                            </div>
+                            
+                            <div class="info__card">
+                                <div class="info__icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <h3 class="info__title">Response Time</h3>
+                                <p class="info__text">We typically respond within 24 hours</p>
+                                <span class="info__link">Mon-Fri: 9AM-6PM PST</span>
+                            </div>
+                            
+                            <div class="info__card">
+                                <div class="info__icon">
+                                    <i class="fas fa-question-circle"></i>
+                                </div>
+                                <h3 class="info__title">Help Center</h3>
+                                <p class="info__text">Find answers to common questions</p>
+                                <a href="#faq" class="info__link">Browse FAQ</a>
+                            </div>
+                            
+                            <div class="info__card">
+                                <div class="info__icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h3 class="info__title">Community</h3>
+                                <p class="info__text">Connect with other dreamers</p>
+                                <a href="community.html" class="info__link">Join Community</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <!-- FAQ Section -->
+                <div class="faq__section" id="faq">
+                    <div class="faq__header">
+                        <h2 class="faq__title">Frequently Asked Questions</h2>
+                        <p class="faq__subtitle">Quick answers to common questions</p>
+                    </div>
+                    
+                    <div class="faq__list">
+                        
+                        <div class="faq__item">
+                            <button class="faq__question">
+                                <span>How accurate are the dream interpretations?</span>
+                                <i class="fas fa-chevron-down faq__icon"></i>
+                            </button>
+                            <div class="faq__answer">
+                                Our AI-powered interpretations combine psychological research, cultural symbolism, and pattern recognition to provide meaningful insights. While interpretations are personalized and insightful, remember that you are the ultimate interpreter of your dreams.
+                            </div>
+                        </div>
+                        
+                        <div class="faq__item">
+                            <button class="faq__question">
+                                <span>Can I cancel my subscription anytime?</span>
+                                <i class="fas fa-chevron-down faq__icon"></i>
+                            </button>
+                            <div class="faq__answer">
+                                Yes, you can cancel your subscription at any time. There are no cancellation fees, and you'll continue to have access to premium features until the end of your current billing period.
+                            </div>
+                        </div>
+                        
+                        <div class="faq__item">
+                            <button class="faq__question">
+                                <span>Is my dream data private and secure?</span>
+                                <i class="fas fa-chevron-down faq__icon"></i>
+                            </button>
+                            <div class="faq__answer">
+                                Absolutely. We take privacy seriously. Your dreams are encrypted and stored securely. We never share your personal dream content with third parties, and you can delete your data at any time.
+                            </div>
+                        </div>
+                        
+                        <div class="faq__item">
+                            <button class="faq__question">
+                                <span>How do I improve my dream recall?</span>
+                                <i class="fas fa-chevron-down faq__icon"></i>
+                            </button>
+                            <div class="faq__answer">
+                                Keep a dream journal by your bed, set an intention to remember dreams before sleep, avoid alcohol before bedtime, and try to wake up naturally when possible. Our app includes tips and reminders to help improve your dream recall.
+                            </div>
+                        </div>
+                        
+                        <div class="faq__item">
+                            <button class="faq__question">
+                                <span>What if I don't agree with an interpretation?</span>
+                                <i class="fas fa-chevron-down faq__icon"></i>
+                            </button>
+                            <div class="faq__answer">
+                                Dream interpretation is highly personal. Our AI provides multiple perspectives and possible meanings. You can request alternative interpretations, join community discussions, or focus on aspects that resonate with you most.
+                            </div>
+                        </div>
+                        
+                        <div class="faq__item">
+                            <button class="faq__question">
+                                <span>Do you offer interpretations in other languages?</span>
+                                <i class="fas fa-chevron-down faq__icon"></i>
+                            </button>
+                            <div class="faq__answer">
+                                Currently, we offer interpretations in English, but we're working on adding support for Spanish, French, German, and other languages. Join our newsletter to be notified when new languages become available.
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container container">
+            <!-- Footer Top -->
+            <div class="footer__top">
+                <div class="footer__brand">
+                    <a href="index.html" class="footer__logo">
+                        <i class="fas fa-moon"></i>
+                        <span>DreamGate</span>
+                    </a>
+                    <p class="footer__description">
+                        Unlock the mysteries of your subconscious mind with AI-powered dream interpretation.
+                    </p>
+                    <div class="footer__social">
+                        <a href="#" class="social__link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social__link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social__link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social__link" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Footer Links -->
+                <div class="footer__links">
+                    <div class="footer__group">
+                        <h3 class="footer__title">Features</h3>
+                        <ul class="footer__list">
+                            <li><a href="interpreter.html" class="footer__link">Dream Interpreter</a></li>
+                            <li><a href="dictionary.html" class="footer__link">Symbol Dictionary</a></li>
+                            <li><a href="journal.html" class="footer__link">Dream Journal</a></li>
+                            <li><a href="community.html" class="footer__link">Community</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__group">
+                        <h3 class="footer__title">Company</h3>
+                        <ul class="footer__list">
+                            <li><a href="about.html" class="footer__link">About Us</a></li>
+                            <li><a href="contact.html" class="footer__link">Contact</a></li>
+                            <li><a href="#" class="footer__link">Careers</a></li>
+                            <li><a href="#" class="footer__link">Press Kit</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__group">
+                        <h3 class="footer__title">Support</h3>
+                        <ul class="footer__list">
+                            <li><a href="#" class="footer__link">Help Center</a></li>
+                            <li><a href="#" class="footer__link">FAQ</a></li>
+                            <li><a href="#" class="footer__link">Privacy Policy</a></li>
+                            <li><a href="#" class="footer__link">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="footer__newsletter">
+                    <h3 class="footer__title">Newsletter</h3>
+                    <p class="newsletter__text">
+                        Get weekly dream insights and tips
+                    </p>
+                    <form class="newsletter__form" id="newsletter-form">
+                        <input 
+                            type="email" 
+                            class="newsletter__input" 
+                            placeholder="Your email"
+                            required>
+                        <button type="submit" class="newsletter__button">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="footer__bottom">
+                <p class="footer__copyright">
+                    &copy; 2025 DreamGate. All rights reserved.
+                </p>
+                <div class="footer__terms">
+                    <a href="#" class="terms__link">Privacy</a>
+                    <span class="separator">•</span>
+                    <a href="#" class="terms__link">Terms</a>
+                    <span class="separator">•</span>
+                    <a href="#" class="terms__link">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scroll to Top Button -->
+    <button class="scrolltop" id="scroll-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    
+    <!-- Embedded JavaScript -->
+    <script>
+        // ===== GLOBAL VARIABLES =====
+        const doc = document;
+        const win = window;
+
+
+        // ===== DOM ELEMENTS =====
+        const elements = {
+            // Navigation
+            navMenu: doc.getElementById('nav-menu'),
+            navToggle: doc.getElementById('nav-toggle'),
+            navClose: doc.getElementById('nav-close'),
+            navLinks: doc.querySelectorAll('.nav__link'),
+            header: doc.getElementById('header'),
+            
+            // Contact Form
+            contactForm: doc.getElementById('contact-form'),
+            formStatus: doc.getElementById('form-status'),
+            
+            // FAQ
+            faqItems: doc.querySelectorAll('.faq__item'),
+            
+            // Common
+            loginBtn: doc.getElementById('login-btn'),
+            signupBtn: doc.getElementById('signup-btn'),
+            newsletterForm: doc.getElementById('newsletter-form'),
+            scrollTop: doc.getElementById('scroll-top')
+        };
+
+
+        // ===== MOBILE MENU FUNCTIONALITY =====
+        function initMobileMenu() {
+            if (elements.navToggle) {
+                elements.navToggle.addEventListener('click', () => {
+                    elements.navMenu.classList.add('show-menu');
+                });
+            }
+            
+            if (elements.navClose) {
+                elements.navClose.addEventListener('click', () => {
+                    elements.navMenu.classList.remove('show-menu');
+                });
+            }
+            
+            elements.navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    elements.navMenu.classList.remove('show-menu');
+                });
+            });
+        }
+
+
+        // ===== HEADER SCROLL =====
+        function initHeaderScroll() {
+            function scrollHeader() {
+                if (win.scrollY >= 80) {
+                    elements.header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+                } else {
+                    elements.header.style.boxShadow = 'none';
+                }
+            }
+            
+            win.addEventListener('scroll', scrollHeader);
+        }
+
+
+        // ===== CONTACT FORM =====
+        function initContactForm() {
+            if (elements.contactForm) {
+                elements.contactForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    
+                    const formData = new FormData(elements.contactForm);
+                    const submitBtn = elements.contactForm.querySelector('.form__submit');
+                    
+                    // Show loading state
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                    submitBtn.disabled = true;
+                    
+                    try {
+                        const response = await fetch(elements.contactForm.action, {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+                        
+                        if (response.ok) {
+                            showFormStatus('Thank you! Your message has been sent successfully. We\'ll get back to you soon.', 'success');
+                            elements.contactForm.reset();
+                        } else {
+                            throw new Error('Form submission failed');
+                        }
+                    } catch (error) {
+                        showFormStatus('Sorry, there was an error sending your message. Please try again later.', 'error');
+                    } finally {
+                        // Reset button
+                        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                        submitBtn.disabled = false;
+                    }
+                });
+            }
+        }
+
+
+        function showFormStatus(message, type) {
+            if (elements.formStatus) {
+                elements.formStatus.textContent = message;
+                elements.formStatus.className = `form__status ${type}`;
+                elements.formStatus.style.display = 'block';
+                
+                // Hide after 5 seconds
+                setTimeout(() => {
+                    elements.formStatus.style.display = 'none';
+                }, 5000);
+            }
+        }
+
+
+        // ===== FAQ FUNCTIONALITY =====
+        function initFAQ() {
+            elements.faqItems.forEach(item => {
+                const question = item.querySelector('.faq__question');
+                if (question) {
+                    question.addEventListener('click', () => {
+                        // Close other FAQ items
+                        elements.faqItems.forEach(otherItem => {
+                            if (otherItem !== item && otherItem.classList.contains('active')) {
+                                otherItem.classList.remove('active');
+                            }
+                        });
+                        
+                        // Toggle current item
+                        item.classList.toggle('active');
+                    });
+                }
+            });
+        }
+
+
+        // ===== SCROLL TO TOP =====
+        function initScrollTop() {
+            if (elements.scrollTop) {
+                win.addEventListener('scroll', () => {
+                    if (win.scrollY >= 560) {
+                        elements.scrollTop.classList.add('show-scroll');
+                    } else {
+                        elements.scrollTop.classList.remove('show-scroll');
+                    }
+                });
+                
+                elements.scrollTop.addEventListener('click', () => {
+                    win.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        }
+
+
+        // ===== NOTIFICATION SYSTEM =====
+        function showNotification(message, type = 'info') {
+            const existingNotification = doc.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            const notification = doc.createElement('div');
+            notification.className = `notification notification--${type}`;
+            
+            let icon = '';
+            switch(type) {
+                case 'success':
+                    icon = '<i class="fas fa-check-circle"></i>';
+                    break;
+                case 'error':
+                    icon = '<i class="fas fa-exclamation-circle"></i>';
+                    break;
+                case 'warning':
+                    icon = '<i class="fas fa-exclamation-triangle"></i>';
+                    break;
+                default:
+                    icon = '<i class="fas fa-info-circle"></i>';
+            }
+            
+            notification.innerHTML = `${icon}<span>${message}</span>`;
+            
+            notification.style.cssText = `
+                position: fixed;
+                top: 80px;
+                right: 20px;
+                padding: 1rem 1.5rem;
+                background: ${type === 'success' ? '#4ade80' : 
+                             type === 'error' ? '#ef4444' : 
+                             type === 'warning' ? '#fbbf24' : '#3b82f6'};
+                color: white;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                z-index: 9999;
+                animation: slideInRight 0.3s ease;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            `;
+            
+            doc.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 3000);
+        }
+
+
+        // ===== AUTH BUTTONS =====
+        function initAuthButtons() {
+            if (elements.loginBtn) {
+                elements.loginBtn.addEventListener('click', () => {
+                    window.location.href = 'login.html';
+                });
+            }
+            
+            if (elements.signupBtn) {
+                elements.signupBtn.addEventListener('click', () => {
+                    window.location.href = 'signup.html';
+                });
+            }
+        }
+
+
+        // ===== NEWSLETTER =====
+        function initNewsletter() {
+            if (elements.newsletterForm) {
+                elements.newsletterForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    const emailInput = e.target.querySelector('input[type="email"]');
+                    const email = emailInput.value.trim();
+                    
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        showNotification('Please enter a valid email address', 'error');
+                        return;
+                    }
+                    
+                    localStorage.setItem('newsletterEmail', email);
+                    showNotification('Successfully subscribed to newsletter!', 'success');
+                    emailInput.value = '';
+                });
+            }
+        }
+
+
+        // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
+        function initSmoothScroll() {
+            doc.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    
+                    if (href === '#') return;
+                    
+                    e.preventDefault();
+                    const target = doc.querySelector(href);
+                    
+                    if (target) {
+                        const headerOffset = 80;
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + win.pageYOffset - headerOffset;
+                        
+                        win.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+
+        // ===== INITIALIZATION =====
+        function init() {
+            initMobileMenu();
+            initHeaderScroll();
+            initContactForm();
+            initFAQ();
+            initScrollTop();
+            initAuthButtons();
+            initNewsletter();
+            initSmoothScroll();
+        }
+
+
+        // ===== DOM READY =====
+        if (doc.readyState === 'loading') {
+            doc.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+
+        // ===== ANIMATIONS CSS =====
+        const style = doc.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            
+            @keyframes slideOutRight {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        doc.head.appendChild(style);
+
+
+        console.log('Contact page initialized successfully! 📧');
+    </script>
+</body>
+</html>
