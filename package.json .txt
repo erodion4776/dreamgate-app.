@@ -1,0 +1,8 @@
+{
+  "name": "dream-interpreter-functions",
+  "version": "1.0.0",
+  "description": "Backend functions for the dream interpreter app",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.0.0"
+  }
+}
