@@ -1,0 +1,1463 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat - Dream Interpreter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #333;
+            overflow: hidden;
+            background: linear-gradient(180deg, #1a1547 0%, #2d1b69 25%, #764ba2 65%, #f093fb 100%);
+            position: relative;
+        }
+
+
+        /* Floating Stars Background */
+        .stars-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+            box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+        }
+
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+
+
+        /* Top Navigation Bar */
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: rgba(26, 21, 71, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1500;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            justify-content: space-between;
+        }
+
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+
+        .menu-toggle:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: white;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+
+        .navbar-logo-icon {
+            width: 35px;
+            height: 35px;
+            background: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .navbar-center {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #667eea, #f093fb);
+            transition: width 0.3s ease;
+        }
+
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+
+        .nav-link:hover {
+            color: white;
+        }
+
+
+        .navbar-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+
+        .subscribe-btn {
+            padding: 8px 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+
+        .subscribe-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+
+        .interpretation-counter {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+
+        .app-layout {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            z-index: 1;
+            padding-top: 60px;
+        }
+
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 320px;
+            background: rgba(26, 21, 71, 0.95);
+            backdrop-filter: blur(20px);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1000;
+        }
+
+
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+
+        .sidebar-header {
+            padding: 30px 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+        }
+
+
+        .sidebar-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            letter-spacing: -0.3px;
+        }
+
+
+        .nav-section {
+            padding: 24px;
+            flex-shrink: 0;
+        }
+
+
+        .nav-section-title {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            padding-left: 8px;
+        }
+
+
+        .nav-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+
+        .nav-item {
+            margin-bottom: 6px;
+        }
+
+
+        .nav-item a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            padding: 14px 16px;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .nav-item a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+            transition: width 0.3s ease;
+        }
+
+
+        .nav-item a:hover::before {
+            width: 100%;
+        }
+
+
+        .nav-item a:hover {
+            color: white;
+            transform: translateX(4px);
+        }
+
+
+        .nav-item.active a {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+
+        .nav-item.active a::before {
+            display: none;
+        }
+
+
+        #new-chat-link {
+            background: rgba(102, 126, 234, 0.1);
+            border: 2px solid rgba(102, 126, 234, 0.3);
+        }
+
+
+        #new-chat-link:hover {
+            background: rgba(102, 126, 234, 0.2);
+            border-color: rgba(102, 126, 234, 0.5);
+        }
+
+
+        .dreams-list-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 0 24px;
+        }
+
+
+        .dreams-list-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+
+        .dreams-list-container::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+        }
+
+
+        .delete-dream-btn {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            padding: 5px;
+            opacity: 0;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .nav-item a:hover .delete-dream-btn {
+            opacity: 1;
+        }
+
+
+        .delete-dream-btn:hover {
+            color: #ef4444;
+            transform: scale(1.2);
+        }
+
+
+        #no-dreams-message {
+            padding: 30px 20px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.4);
+            text-align: center;
+            font-style: italic;
+        }
+
+
+        .user-profile {
+            padding: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.2);
+            flex-shrink: 0;
+        }
+
+
+        #user-email {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+
+        #user-email::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #4ade80;
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(74, 222, 128, 0.5);
+        }
+
+
+        #logout-button {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+
+        #logout-button:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+
+        /* Main Content */
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 60px);
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        /* Chat Container */
+        .chat-container {
+            flex: 1;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            height: 100%;
+        }
+
+
+        .chat-window {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 30px;
+            background: linear-gradient(180deg, rgba(240, 235, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
+        }
+
+
+        .chat-window::-webkit-scrollbar {
+            width: 8px;
+        }
+
+
+        .chat-window::-webkit-scrollbar-thumb {
+            background: rgba(102, 126, 234, 0.3);
+            border-radius: 4px;
+        }
+
+
+        /* Messages */
+        .message-wrapper {
+            display: flex;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.4s ease;
+        }
+
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        .message {
+            max-width: 70%;
+            padding: 16px 20px;
+            border-radius: 20px;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+
+        .message p {
+            margin: 0;
+            white-space: pre-wrap;
+        }
+
+
+        .message.ai {
+            background: linear-gradient(135deg, #f3e7fc 0%, #e7e3ff 100%);
+            color: #2d1b69;
+            margin-left: 40px;
+            border-bottom-left-radius: 5px;
+            position: relative;
+        }
+
+
+        .message.ai::before {
+            content: '🌙';
+            position: absolute;
+            left: -35px;
+            top: 12px;
+            font-size: 1.5rem;
+            filter: drop-shadow(0 2px 4px rgba(102, 126, 234, 0.3));
+        }
+
+
+        .message.user {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin-left: auto;
+            border-bottom-right-radius: 5px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+
+        /* Chat Input */
+        .chat-input-wrapper {
+            padding: 20px;
+            background: white;
+            border-top: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+
+        .chat-input-form {
+            display: flex;
+            align-items: flex-end;
+            gap: 12px;
+            background: #f8f7ff;
+            padding: 12px;
+            border-radius: 25px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+
+        .chat-input-form:focus-within {
+            border-color: rgba(102, 126, 234, 0.3);
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+
+
+        #dream-input {
+            flex-grow: 1;
+            background: transparent;
+            border: none;
+            color: #333;
+            padding: 10px 12px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.95rem;
+            resize: none;
+            max-height: 120px;
+            outline: none;
+            line-height: 1.5;
+        }
+
+
+        #dream-input::placeholder {
+            color: #9ca3af;
+        }
+
+
+        #send-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+
+        #send-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+
+        #send-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+
+        /* Loading Animation */
+        .loading-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 20px;
+            margin-left: 40px;
+            background: linear-gradient(135deg, #f3e7fc 0%, #e7e3ff 100%);
+            border-radius: 20px;
+            border-bottom-left-radius: 5px;
+            width: fit-content;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+
+        .loading-indicator .dot {
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+
+
+        .loading-indicator .dot:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+
+
+        .loading-indicator .dot:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+
+
+        @keyframes bounce {
+            0%, 80%, 100% {
+                transform: scale(0);
+                opacity: 0.5;
+            }
+            40% {
+                transform: scale(1.0);
+                opacity: 1;
+            }
+        }
+
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            animation: fadeIn 0.3s ease;
+        }
+
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+
+        .modal-content {
+            background: white;
+            padding: 50px;
+            border-radius: 30px;
+            max-width: 450px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.4s ease;
+            position: relative;
+            margin: 20px;
+        }
+
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        .modal-content::before {
+            content: '✨';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+            animation: float 2s ease-in-out infinite;
+        }
+
+
+        @keyframes float {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+
+        .modal-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #2d1b69;
+            font-weight: 700;
+        }
+
+
+        .modal-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 35px;
+            font-size: 1rem;
+        }
+
+
+        .modal-button {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 15px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+
+        .modal-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+
+        .close-modal-button {
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+            text-decoration: underline;
+        }
+
+
+        .close-modal-button:hover {
+            color: #666;
+        }
+
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 21, 71, 0.98);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1500;
+            padding: 10px 0;
+        }
+
+
+        .mobile-nav-items {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+
+        .mobile-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            padding: 8px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.75rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+
+        .mobile-nav-item:hover,
+        .mobile-nav-item.active {
+            color: white;
+        }
+
+
+        .mobile-nav-item svg {
+            width: 24px;
+            height: 24px;
+        }
+
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+
+            .navbar-center {
+                display: none;
+            }
+
+
+            .navbar-logo span {
+                display: none;
+            }
+
+
+            .interpretation-counter {
+                font-size: 0.75rem;
+                padding: 5px 10px;
+            }
+
+
+            .subscribe-btn {
+                display: none;
+            }
+
+
+            .sidebar {
+                position: fixed;
+                left: -320px;
+                top: 60px;
+                height: calc(100vh - 60px);
+                z-index: 1001;
+            }
+
+
+            .sidebar.active {
+                left: 0;
+            }
+
+
+            .sidebar-overlay.active {
+                display: block;
+            }
+
+
+            .main-content {
+                width: 100%;
+            }
+
+
+            .chat-container {
+                border-radius: 0;
+                height: calc(100vh - 120px);
+            }
+
+
+            .chat-window {
+                padding: 20px;
+            }
+
+
+            .message {
+                max-width: 85%;
+            }
+
+
+            .message.ai {
+                margin-left: 30px;
+            }
+
+
+            .message.ai::before {
+                left: -25px;
+                font-size: 1.2rem;
+            }
+
+
+            .mobile-nav {
+                display: block;
+            }
+
+
+            .chat-input-wrapper {
+                padding: 15px;
+                padding-bottom: 70px;
+            }
+
+
+            .modal-content {
+                padding: 35px 25px;
+            }
+        }
+
+
+        @media (max-width: 480px) {
+            .top-navbar {
+                padding: 0 15px;
+            }
+
+
+            .navbar-logo-icon {
+                width: 30px;
+                height: 30px;
+            }
+
+
+            .chat-window {
+                padding: 15px;
+            }
+
+
+            .message {
+                font-size: 0.9rem;
+                padding: 12px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Stars Background -->
+    <div class="stars-container">
+        <div class="star" style="top: 10%; left: 15%; animation-delay: 0s;"></div>
+        <div class="star" style="top: 20%; left: 80%; animation-delay: 0.5s;"></div>
+        <div class="star" style="top: 35%; left: 25%; animation-delay: 1s;"></div>
+        <div class="star" style="top: 50%; left: 70%; animation-delay: 1.5s;"></div>
+        <div class="star" style="top: 65%; left: 40%; animation-delay: 2s;"></div>
+        <div class="star" style="top: 80%; left: 90%; animation-delay: 2.5s;"></div>
+    </div>
+
+
+    <!-- Top Navigation Bar -->
+    <nav class="top-navbar">
+        <div class="navbar-left">
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <a href="/" class="navbar-logo">
+                <div class="navbar-logo-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="url(#gradient)" stroke-width="2">
+                        <defs>
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </div>
+                <span>Dream Interpreter</span>
+            </a>
+        </div>
+
+
+        <div class="navbar-center">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/chat" class="nav-link">Chat</a>
+            <a href="/journal" class="nav-link">Journal</a>
+            <a href="/about" class="nav-link">About</a>
+        </div>
+
+
+        <div class="navbar-right">
+            <div class="interpretation-counter" id="counter">
+                <span id="counter-text">3 free left</span>
+            </div>
+            <a href="/subscribe" class="subscribe-btn">Subscribe</a>
+        </div>
+    </nav>
+
+
+    <div class="app-layout">
+        <!-- Sidebar Overlay for mobile -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+        <!-- SIDEBAR -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2 class="sidebar-title">Dream Journal</h2>
+            </div>
+            
+            <div class="nav-section">
+                <ul class="nav-menu">
+                    <li class="nav-item" id="new-chat-item">
+                        <a href="#" id="new-chat-link">
+                            <span>✨ New Interpretation</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="dreams-list-container">
+                <h3 class="nav-section-title">My Dreams</h3>
+                <ul class="nav-menu" id="dreams-list"></ul>
+                <p id="no-dreams-message" style="display: none;">Your dream journal is empty. Start by sharing a dream!</p>
+            </div>
+
+
+            <div class="user-profile">
+                <span id="user-email">Loading...</span>
+                <button id="logout-button">Sign Out</button>
+            </div>
+        </nav>
+
+
+        <!-- MAIN CHAT -->
+        <main class="main-content">
+            <div class="chat-container">
+                <div class="chat-window" id="chat-window"></div>
+                <div class="chat-input-wrapper">
+                    <form class="chat-input-form" id="chat-form">
+                        <textarea id="dream-input" placeholder="Describe your dream here..." required rows="1"></textarea>
+                        <button id="send-button" type="submit">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+        <div class="mobile-nav-items">
+            <a href="/" class="mobile-nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                <span>Home</span>
+            </a>
+            <button class="mobile-nav-item active" id="mobileNewChat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M5 12h14"/>
+                </svg>
+                <span>New</span>
+            </button>
+            <button class="mobile-nav-item" id="mobileJournal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                <span>Journal</span>
+            </button>
+            <a href="/subscribe" class="mobile-nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                </svg>
+                <span>Subscribe</span>
+            </a>
+        </div>
+    </nav>
+
+
+    <!-- SUBSCRIBE MODAL -->
+    <div class="modal-overlay" id="subscribe-modal">
+        <div class="modal-content">
+            <h2>Unlock Unlimited Dreams</h2>
+            <p>You've used your 3 free interpretations this month. Subscribe now to continue exploring the meanings behind your dreams with unlimited access.</p>
+            <button class="modal-button" id="subscribe-button">Subscribe for $6/month</button>
+            <button class="close-modal-button" id="close-modal-button">Maybe later</button>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        // CONFIGURATION
+        const SUPABASE_URL = 'https://apwpsfvqugdfcrplivax.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFwd3BzZnZxdWdkZmNycGxpdmF4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkzMTY2MTAsImV4cCI6MjA3NDg5MjYxMH0.Fnh0vy1t-p3jk8ieU54HLKej3p_vu1vMMraeLAvh2xs';
+
+
+        const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+
+        // DOM Elements
+        const userEmailElement = document.getElementById('user-email');
+        const logoutButton = document.getElementById('logout-button');
+        const chatForm = document.getElementById('chat-form');
+        const dreamInput = document.getElementById('dream-input');
+        const chatWindow = document.getElementById('chat-window');
+        const sendButton = document.getElementById('send-button');
+        const newChatItem = document.getElementById('new-chat-item');
+        const newChatLink = document.getElementById('new-chat-link');
+        const dreamsList = document.getElementById('dreams-list');
+        const noDreamsMessage = document.getElementById('no-dreams-message');
+        const subscribeModal = document.getElementById('subscribe-modal');
+        const closeModalButton = document.getElementById('close-modal-button');
+        const counterText = document.getElementById('counter-text');
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        const mobileNewChat = document.getElementById('mobileNewChat');
+        const mobileJournal = document.getElementById('mobileJournal');
+
+
+        // App State
+        let userSession = null;
+        let currentDreamId = null;
+        let freeInterpretationsLeft = 3;
+
+
+        // Mobile menu toggle
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            sidebar.classList.toggle('active');
+            sidebarOverlay.classList.toggle('active');
+        });
+
+
+        sidebarOverlay.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            sidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+        });
+
+
+        // Mobile navigation
+        mobileNewChat.addEventListener('click', () => {
+            startNewChat();
+            menuToggle.classList.remove('active');
+            sidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+        });
+
+
+        mobileJournal.addEventListener('click', () => {
+            menuToggle.classList.add('active');
+            sidebar.classList.add('active');
+            sidebarOverlay.classList.add('active');
+        });
+
+
+        // Auto-resize textarea
+        dreamInput.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+        });
+
+
+        // Update counter display
+        async function updateCounter() {
+            counterText.textContent = freeInterpretationsLeft > 0 
+                ? `${freeInterpretationsLeft} free left` 
+                : 'Upgrade';
+        }
+
+
+        // INITIALIZATION
+        async function initializeApp() {
+            const { data: { session }, error } = await supabaseClient.auth.getSession();
+            if (!session || error) {
+                window.location.href = 'index.html';
+                return;
+            }
+            userSession = session;
+            userEmailElement.textContent = session.user.email;
+            
+            await fetchAndDisplayDreams();
+            await updateCounter();
+            startNewChat();
+            setupEventListeners();
+        }
+
+
+        function setupEventListeners() {
+            logoutButton.addEventListener('click', () => supabaseClient.auth.signOut());
+            chatForm.addEventListener('submit', handleFormSubmit);
+            newChatLink.addEventListener('click', (e) => { 
+                e.preventDefault(); 
+                startNewChat();
+                // Close mobile menu if open
+                menuToggle.classList.remove('active');
+                sidebar.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+            });
+            closeModalButton.addEventListener('click', () => subscribeModal.style.display = 'none');
+            document.getElementById('subscribe-button').addEventListener('click', () => {
+                window.location.href = '/subscribe';
+            });
+            supabaseClient.auth.onAuthStateChange((event) => {
+                if (event === 'SIGNED_OUT') window.location.href = 'index.html';
+            });
+        }
+        
+        // FETCH & DISPLAY DREAMS
+        async function fetchAndDisplayDreams() {
+            const { data: dreams, error } = await supabaseClient
+                .from('dreams')
+                .select('id, title, created_at')
+                .order('created_at', { ascending: false });
+
+
+            dreamsList.innerHTML = '';
+            if (error || dreams.length === 0) {
+                noDreamsMessage.style.display = 'block';
+                return;
+            }
+            noDreamsMessage.style.display = 'none';
+
+
+            dreams.forEach(dream => {
+                const listItem = document.createElement('li');
+                listItem.className = 'nav-item';
+                listItem.dataset.dreamId = dream.id;
+                listItem.innerHTML = `
+                    <a href="#" title="${dream.title}">
+                        <span>${dream.title}</span>
+                        <button class="delete-dream-btn" title="Delete Dream">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M6 19c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                            </svg>
+                        </button>
+                    </a>
+                `;
+                dreamsList.appendChild(listItem);
+
+
+                listItem.querySelector('a').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (e.target.closest('.delete-dream-btn')) return;
+                    loadDreamConversation(dream.id);
+                    // Close mobile menu if open
+                    menuToggle.classList.remove('active');
+                    sidebar.classList.remove('active');
+                    sidebarOverlay.classList.remove('active');
+                });
+
+
+                listItem.querySelector('.delete-dream-btn').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (confirm('Are you sure you want to permanently delete this dream conversation?')) {
+                        deleteDream(dream.id);
+                    }
+                });
+            });
+        }
+
+
+        async function loadDreamConversation(dreamId) {
+            currentDreamId = dreamId;
+            setActiveListItem(dreamId);
+            chatWindow.innerHTML = '';
+            dreamInput.value = '';
+            dreamInput.placeholder = 'Viewing a past dream...';
+            dreamInput.disabled = true;
+            sendButton.disabled = true;
+
+
+            const { data: messages, error } = await supabaseClient
+                .from('messages')
+                .select('content, sender')
+                .eq('dream_id', dreamId)
+                .order('created_at', { ascending: true });
+
+
+            if (error) {
+                displayMessage('Could not load this conversation. Please try again.', 'ai');
+                return;
+            }
+            messages.forEach(msg => displayMessage(msg.content, msg.sender));
+        }
+        
+        function startNewChat() {
+            currentDreamId = null;
+            setActiveListItem(null);
+            chatWindow.innerHTML = '';
+            displayMessage("Welcome! Share your dream with me, and I'll help you understand its meaning... 🌙", 'ai');
+            dreamInput.placeholder = 'Describe your dream here...';
+            dreamInput.disabled = false;
+            sendButton.disabled = false;
+            dreamInput.focus();
+        }
+
+
+        async function deleteDream(dreamId) {
+            const { error } = await supabaseClient.from('dreams').delete().eq('id', dreamId);
+            if (error) {
+                alert('Error: Could not delete dream.');
+            } else {
+                if (currentDreamId === dreamId) startNewChat();
+                await fetchAndDisplayDreams();
+            }
+        }
+
+
+        // CHAT SUBMISSION
+        async function handleFormSubmit(event) {
+            event.preventDefault();
+            if (currentDreamId) return; 
+            const dreamText = dreamInput.value.trim();
+            if (!dreamText) return;
+
+
+            displayMessage(dreamText, 'user');
+            dreamInput.value = '';
+            dreamInput.style.height = 'auto';
+            sendButton.disabled = true;
+            displayLoadingIndicator();
+
+
+            try {
+                const token = userSession.access_token;
+                const response = await fetch('/.netlify/functions/interpret', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ dreamText })
+                });
+
+
+                removeLoadingIndicator();
+                const result = await response.json();
+
+
+                if (!response.ok) {
+                    if (response.status === 402) {
+                        subscribeModal.style.display = 'flex';
+                    }
+                    throw new Error(result.error || 'An unknown error occurred.');
+                }
+                
+                displayMessage(result.reply, 'ai');
+                await fetchAndDisplayDreams();
+                sendButton.disabled = false;
+
+
+                // Update counter
+                if (freeInterpretationsLeft > 0) {
+                    freeInterpretationsLeft--;
+                    updateCounter();
+                }
+
+
+            } catch (error) {
+                removeLoadingIndicator();
+                displayMessage(`Sorry, an error occurred: ${error.message}`, 'ai');
+                sendButton.disabled = false;
+            }
+        }
+
+
+        // UI HELPERS
+        function displayMessage(text, sender) {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'message-wrapper';
+            const message = document.createElement('div');
+            message.className = `message ${sender}`;
+            const p = document.createElement('p');
+            p.textContent = text;
+            message.appendChild(p);
+            wrapper.appendChild(message);
+            chatWindow.appendChild(wrapper);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
+
+
+        function displayLoadingIndicator() {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'message-wrapper';
+            wrapper.id = 'loading-indicator';
+            const indicator = document.createElement('div');
+            indicator.className = 'loading-indicator';
+            indicator.innerHTML = `<div class="dot"></div><div class="dot"></div><div class="dot"></div>`;
+            wrapper.appendChild(indicator);
+            chatWindow.appendChild(wrapper);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
+
+
+        function removeLoadingIndicator() {
+            const indicator = document.getElementById('loading-indicator');
+            if (indicator) indicator.remove();
+        }
+        
+        function setActiveListItem(dreamId) {
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            if (dreamId === null) {
+                newChatItem.classList.add('active');
+            } else {
+                const targetItem = document.querySelector(`[data-dream-id="${dreamId}"]`);
+                if (targetItem) targetItem.classList.add('active');
+            }
+        }
+        
+        // RUN APP
+        initializeApp();
+    </script>
+</body>
+</html>
