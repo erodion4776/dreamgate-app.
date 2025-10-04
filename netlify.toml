@@ -1,0 +1,15 @@
+﻿[build]
+  command = "npm run build"
+  functions = "netlify/functions"
+  publish = "build"
+
+
+[build.environment]
+  REACT_APP_SUPABASE_URL = "your-supabase-url"
+  REACT_APP_SUPABASE_ANON_KEY = "your-anon-key"
+
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
