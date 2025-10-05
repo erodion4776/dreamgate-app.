@@ -1,10 +1,9 @@
-﻿import React from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
 import ChatPage from './pages/ChatPage';
-
 
 const App: React.FC = () => {
   return (
@@ -20,6 +19,5 @@ const App: React.FC = () => {
     </Router>
   );
 };
-
 
 export default App;
