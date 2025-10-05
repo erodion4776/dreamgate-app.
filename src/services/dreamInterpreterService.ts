@@ -1,4 +1,4 @@
-﻿interface InterpretResponse {
+interface InterpretResponse {
   reply: string;
   dream_id?: string;
   interpretations_left?: number | string;
@@ -7,21 +7,24 @@
 
 export const dreamInterpreterService = {
   async interpretDream(
-    dreamText: string, 
-    token: string, 
-    dreamId?: string, 
+    dreamText: string,
+    token: string,
+    dreamId?: string,
     isContinuation?: boolean
   ): Promise<InterpretResponse> {
-    const response = await fetch('/.netlify/functions/interpret', {
+    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+    const apiUrl = `${supabaseUrl}/functions/v1/interpret-dream`;
+
+    const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
       },
-      body: JSON.stringify({ 
+      body: JSON.stringify({
         dreamText,
         dreamId,
-        isContinuation 
+        isContinuation
       })
     });
 

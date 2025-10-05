@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import '../styles/login.css';
@@ -165,14 +165,18 @@ const LoginPage: React.FC = () => {
 
           <div className="toggle-auth">
             <span>{isSignUp ? 'Already have an account?' : "Don't have an account?"}</span>
-            <a href="#" onClick={(e) => {
-              e.preventDefault();
-              setIsSignUp(!isSignUp);
-              setError('');
-              setSuccess('');
-            }}>
+            <button
+              type="button"
+              className="toggle-link"
+              onClick={(e) => {
+                e.preventDefault();
+                setIsSignUp(!isSignUp);
+                setError('');
+                setSuccess('');
+              }}
+            >
               {isSignUp ? 'Log in here' : 'Sign up here'}
-            </a>
+            </button>
           </div>
 
 

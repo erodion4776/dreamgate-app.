@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import Sidebar from '../components/Sidebar';
@@ -31,8 +31,9 @@ const ChatPage: React.FC = () => {
       navigate('/login');
       return;
     }
-    
+
     initializeChat();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, navigate]);
 
 
@@ -105,7 +106,7 @@ const ChatPage: React.FC = () => {
 
 
   const deleteDream = async (dreamId: string) => {
-    if (!confirm('Delete this dream conversation?')) return;
+    if (!window.confirm('Delete this dream conversation?')) return;
     
     try {
       await dreamService.deleteDream(dreamId);
