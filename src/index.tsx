@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './MainApp'; // <-- PROBLEM LINE
+import MainApp from './MainApp';
 import './styles/global.css';
 
 const root = ReactDOM.createRoot(
@@ -8,6 +8,6 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App /> 
+    <MainApp />
   </React.StrictMode>
 );
