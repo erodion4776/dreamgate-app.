@@ -1,12 +1,11 @@
-﻿import React from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
 import ChatPage from './pages/ChatPage';
 
-
-const App: React.FC = () => {
+const MainApp: React.FC = () => {
   return (
     <Router>
       <AuthProvider>
@@ -21,5 +20,4 @@ const App: React.FC = () => {
   );
 };
 
-
-export default App;
+export default MainApp;
