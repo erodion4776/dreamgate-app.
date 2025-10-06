@@ -113,46 +113,47 @@ Deno.serve(async (req: Request) => {
       }
     }
 
-    const openaiApiKey = Deno.env.get("OPENAI_API_KEY");
+    const geminiApiKey = Deno.env.get("GEMINI_API_KEY");
     let interpretation: string;
 
-    if (openaiApiKey) {
+    if (geminiApiKey) {
       try {
-        const openaiResponse = await fetch(
-          "https://api.openai.com/v1/chat/completions",
+        const geminiResponse = await fetch(
+          "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=" + geminiApiKey,
           {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              "Authorization": `Bearer ${openaiApiKey}`,
             },
             body: JSON.stringify({
-              model: "gpt-3.5-turbo",
-              messages: [
+              contents: [
                 {
-                  role: "system",
-                  content: DREAM_INTERPRETER_PROMPT,
-                },
-                {
-                  role: "user",
-                  content: dreamText,
+                  parts: [
+                    {
+                      text: DREAM_INTERPRETER_PROMPT + "\n\nUser's dream: " + dreamText,
+                    },
+                  ],
                 },
               ],
-              max_tokens: 500,
-              temperature: 0.7,
+              generationConfig: {
+                temperature: 0.7,
+                maxOutputTokens: 500,
+              },
             }),
           }
         );
 
-        if (!openaiResponse.ok) {
-          throw new Error("OpenAI API error");
+        if (!geminiResponse.ok) {
+          const errorText = await geminiResponse.text();
+          console.error("Gemini API error:", errorText);
+          throw new Error("Gemini API error");
         }
 
-        const openaiData = await openaiResponse.json();
-        interpretation = openaiData.choices[0]?.message?.content ||
+        const geminiData = await geminiResponse.json();
+        interpretation = geminiData.candidates?.[0]?.content?.parts?.[0]?.text ||
           "I couldn't generate an interpretation at this moment. Please try again.";
-      } catch (openaiError) {
-        console.error("OpenAI error:", openaiError);
+      } catch (geminiError) {
+        console.error("Gemini error:", geminiError);
         interpretation = `Thank you for sharing your dream about "${dreamText.substring(0, 50)}..."
 
 This dream appears to be rich with personal symbolism. Dreams often reflect our subconscious thoughts and emotions.
