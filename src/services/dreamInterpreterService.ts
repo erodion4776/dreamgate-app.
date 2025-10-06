@@ -12,7 +12,7 @@ export const dreamInterpreterService = {
     dreamId?: string,
     isContinuation?: boolean
   ): Promise<InterpretResponse> {
-    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+    const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
     const apiUrl = `${supabaseUrl}/functions/v1/interpret-dream`;
 
     const response = await fetch(apiUrl, {
